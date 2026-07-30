@@ -1,0 +1,31 @@
+{
+  "name": "宿曜經・三九祕宿",
+  "short_name": "三九祕宿",
+  "description": "依《文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經》推算三九祕宿與個人月份吉凶表。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12182B",
+  "theme_color": "#12182B",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
