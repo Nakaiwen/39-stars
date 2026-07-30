@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經 — 三九秘宿</title>
+<style>
+:root{
+  --ink:#12182B; --ink-2:#1C2440; --paper:#F2EDE3; --paper-2:#E6DECE;
+  --teng:#E0A93B; --shi:#3E7C8C; --zhu:#B5483C; --hui:#8A93A6;
+  --serif:"Songti TC","Noto Serif TC","Source Han Serif TC","STSong",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 72px}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;
+  color:var(--teng);text-transform:uppercase;margin:0 0 10px}
+h1{font-family:var(--serif);font-size:clamp(23px,4.6vw,36px);font-weight:600;
+  margin:0 0 8px;letter-spacing:.08em;line-height:1.4}
+.byline{font-family:var(--serif);font-size:13px;color:var(--hui);margin:0 0 18px;letter-spacing:.06em}
+.sub{color:var(--hui);font-size:14px;margin:0 0 28px;max-width:46em}
+
+/* 生辰輸入 */
+.bar{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;
+  background:var(--ink-2);border:1px solid #2A3454;border-radius:14px;padding:16px 18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:11px;letter-spacing:.16em;color:var(--hui)}
+select,input[type=date]{font-family:var(--mono);font-size:15px;padding:8px 10px;
+  background:#0D1222;color:var(--paper);border:1px solid #35406A;border-radius:8px;min-width:82px}
+select:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--teng);outline-offset:2px}
+.chk{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--hui);padding-bottom:9px}
+
+/* 命盤頭 */
+.heads{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 8px}
+.head{background:var(--ink-2);border:1px solid #2A3454;border-radius:14px;padding:16px;text-align:center}
+.head .k{font-size:11px;letter-spacing:.24em;color:var(--hui)}
+.head .v{font-family:var(--serif);font-size:40px;line-height:1.2;margin-top:4px}
+.head.ming .v{color:var(--hui)} .head.ye .v{color:var(--teng)} .head.tai .v{color:var(--hui)}
+
+/* 月輪 */
+.ring-wrap{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:20px;margin-top:24px;align-items:start}
+.stack{display:flex;flex-direction:column;gap:20px;min-width:0}
+@media(max-width:840px){.ring-wrap{grid-template-columns:1fr}}
+figure{margin:0;background:radial-gradient(circle at 50% 46%,#1B2banner 0%,#12182B 70%);
+  background:radial-gradient(circle at 50% 46%,#1D2748 0%,#12182B 72%);
+  border:1px solid #2A3454;border-radius:18px;padding:10px}
+svg{width:100%;height:auto;display:block}
+.seat-x{font-family:var(--serif);font-size:15px;text-anchor:middle;dominant-baseline:middle}
+.seat-r{font-family:var(--sans);font-size:7.5px;text-anchor:middle;dominant-baseline:middle;opacity:.85}
+.arc-lab{font-family:var(--mono);font-size:8px;fill:var(--hui);letter-spacing:.2em}
+figcaption{font-size:12px;color:var(--hui);text-align:center;padding:8px 6px 4px}
+
+/* 紙面 */
+.paper{background:var(--paper);color:#2A2A2A;border-radius:16px;padding:20px 22px}
+.paper h2{font-family:var(--serif);font-size:19px;margin:0 0 12px;letter-spacing:.06em;
+  padding-bottom:9px;border-bottom:1px solid var(--paper-2)}
+.today{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.today .xiu{font-family:var(--serif);font-size:52px;line-height:1}
+.today .role{font-family:var(--serif);font-size:24px;padding:2px 14px;border-radius:999px;color:#fff}
+.today .cal{font-family:var(--mono);font-size:12px;color:#6B6B6B}
+.gloss{font-size:15px;margin:10px 0 14px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px;margin:0}
+.dl dt{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#8A7F6B;padding-top:4px}
+.dl dd{margin:0}
+
+/* 分屬表 */
+.tbl{margin-top:2px}
+.row{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:center;
+  padding:7px 0;border-bottom:1px solid var(--paper-2)}
+.row:last-child{border-bottom:0}
+.row.on{background:#FBF7EF;box-shadow:inset 3px 0 0 var(--teng);padding-left:9px;margin-left:-9px}
+.tag{font-family:var(--serif);font-size:15px;padding:2px 0;border-radius:6px;text-align:center;color:#fff;font-weight:600;letter-spacing:.08em}
+.xiulist{font-family:var(--serif);font-size:19px;letter-spacing:.3em;color:#2A2A2A}
+.rowsub{font-size:11.5px;color:#8A7F6B;letter-spacing:.02em;margin-top:1px}
+
+/* 擇日 */
+.picker{margin-top:34px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.chip{font-family:var(--sans);font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;
+  background:#0D1222;color:var(--paper);border:1px solid #35406A}
+.chip[aria-pressed=true]{background:var(--teng);color:#12182B;border-color:var(--teng);font-weight:600}
+.months{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.mo{background:var(--ink-2);border:1px solid #2A3454;border-radius:11px;padding:10px 12px}
+.mo b{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--teng)}
+.mo p{font-family:var(--mono);font-size:12.5px;margin:5px 0 0;color:var(--paper);line-height:1.9}
+.mo .none{color:var(--hui)}
+
+.note{margin-top:34px;font-size:12.5px;color:var(--hui);border-top:1px solid #232C4C;padding-top:16px}
+.note b{color:var(--paper);font-weight:600}
+.note p{margin:0 0 8px}
+/* 命宿・此宿生人 */
+.born{margin-top:14px;background:var(--paper);color:#2A2A2A;border-radius:16px;padding:20px 22px}
+.born h2{font-family:var(--serif);font-size:19px;margin:0 0 4px;letter-spacing:.06em}
+.born .sub2{font-family:var(--mono);font-size:11.5px;color:#8A7F6B;margin-bottom:12px}
+.born .body{font-family:var(--serif);font-size:17px;line-height:1.9;letter-spacing:.03em;
+  padding:12px 0;border-top:1px solid var(--paper-2);border-bottom:1px solid var(--paper-2)}
+.born .attrs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.born .attr{font-size:12px;color:#6B6257;background:#EDE6D8;border-radius:7px;padding:4px 11px}
+.born .attr b{color:#2A2A2A;font-weight:600;margin-right:5px}
+.born .cn{margin-top:10px;font-size:11.5px;color:#8A7F6B;line-height:1.7}
+/* 合盤 */
+.pair{margin-top:34px;background:var(--ink-2);border:1px solid #2A3454;border-radius:16px;padding:18px 20px}
+.pair-in{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin:10px 0 16px}
+.pair-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.pair-cards{grid-template-columns:1fr}}
+.pcard{background:#0D1222;border:1px solid #2A3454;border-radius:12px;padding:14px 16px}
+.pcard .dir{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--hui)}
+.pcard .line{font-family:var(--serif);font-size:17px;margin-top:8px;line-height:1.6}
+.pcard .line b{font-size:22px}
+.pcard .seat{display:inline-block;font-family:var(--serif);font-size:17px;padding:1px 12px;
+  border-radius:7px;color:#0D1222;font-weight:600;margin:0 4px}
+.pcard .vd{margin-top:9px;font-size:13px}
+.vd.good{color:var(--teng)} .vd.bad{color:#D08878}
+.verdict{margin-top:14px;padding:12px 16px;border-radius:12px;font-family:var(--serif);
+  font-size:16px;letter-spacing:.04em;text-align:center}
+.verdict.both{background:rgba(224,169,59,.14);color:var(--teng);border:1px solid rgba(224,169,59,.4)}
+.verdict.half{background:rgba(196,138,106,.14);color:#D6A98E;border:1px solid rgba(196,138,106,.4)}
+.verdict.none{background:rgba(181,72,60,.14);color:#D08878;border:1px solid rgba(181,72,60,.4)}
+.pair-src{margin-top:12px;font-size:12px;color:var(--hui);line-height:1.7}
+/* 月表 */
+.sheet{margin-top:34px;background:var(--paper);color:#2A2A2A;border-radius:16px;padding:22px 24px}
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;
+  padding-bottom:10px;border-bottom:1px solid var(--paper-2)}
+.sheet-head h2{font-family:var(--serif);font-size:19px;margin:0;letter-spacing:.06em;border:0;padding:0}
+.sheet-meta{font-family:var(--mono);font-size:11.5px;color:#8A7F6B}
+.mtbl{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px}
+.mtbl th{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;color:#8A7F6B;
+  text-align:left;font-weight:600;padding:5px 6px;border-bottom:1px solid var(--paper-2)}
+.mtbl td{padding:4px 6px;border-bottom:1px solid #EFE9DC;vertical-align:top}
+.mtbl td.d{font-family:var(--mono);white-space:nowrap}
+.mtbl td.w{color:#8A7F6B;white-space:nowrap}
+.mtbl td.x{font-family:var(--serif);font-size:14px;white-space:nowrap}
+.mtbl td.td3{font-family:var(--serif);font-size:12.5px;white-space:nowrap}
+.mtbl td.p span{font-family:var(--serif);font-size:13px;padding:1px 8px;border-radius:5px;color:#fff}
+.mtbl td.yi{color:#3A3A3A} .mtbl td.ji{color:#8A5148}
+.mtbl tr.sun td{background:#FBF7EF}
+.sheet-foot{margin-top:12px;font-size:11px;color:#8A7F6B;line-height:1.6}
+.btn{font-family:var(--sans);font-size:13px;padding:7px 16px;border-radius:999px;cursor:pointer;
+  background:#0D1222;color:var(--paper);border:1px solid #35406A}
+.sheet .btn{background:#2A2A2A;color:var(--paper);border-color:#2A2A2A}
+/* ── 手機 ── */
+html{-webkit-text-size-adjust:100%}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mtbl{min-width:560px}
+@media (max-width:640px){
+  .wrap{padding:20px 14px 56px}
+  .bar{padding:14px;gap:10px}
+  select,input[type=date]{min-height:44px;font-size:16px}   /* 16px 可避免 iOS 聚焦時自動放大 */
+  .chk{padding-bottom:12px;min-height:44px;align-items:center}
+  .chip{padding:11px 16px}                                   /* 觸控目標 ≥44px */
+  .btn{padding:11px 18px}
+  .heads{gap:8px}
+  .head{padding:12px 6px}
+  .head .v{font-size:32px}
+  .head .k{font-size:10px;letter-spacing:.14em}
+  .paper,.born,.sheet{padding:16px 15px}
+  .pair{padding:15px 14px}
+  .row{grid-template-columns:52px 1fr;gap:9px}
+  .xiulist{font-size:17px;letter-spacing:.24em}
+  .months{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
+  .sheet-head{gap:8px}
+  .tbl-hint{display:block}
+}
+.tbl-hint{display:none;font-size:11.5px;color:#8A7F6B;margin:6px 0 0}
+/* 長串中文避免撐破 */
+.gloss,.dl dd,.rowsub,.mtbl td,.pcard .line,.pair-src,.note p{overflow-wrap:anywhere}
+@media print{
+  @page{size:A4 portrait;margin:12mm}
+  body{background:#fff}
+  .wrap>*{display:none!important}
+  .wrap>.sheet{display:block!important;margin:0;padding:0;border-radius:0;background:#fff}
+  .sheet .btn{display:none}
+  .tbl-scroll{overflow:visible}
+  .mtbl{font-size:10pt;min-width:0} .mtbl td{padding:2.6px 5px}
+  .tbl-hint{display:none!important}
+  .mtbl tr{page-break-inside:avoid}
+}
+h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 0 0}
+</style>
+<meta property="og:title" content="宿曜經・三九祕宿">
+<meta property="og:description" content="依《文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經》推算三九祕宿與個人月份吉凶表。">
+<meta property="og:image" content="icons/cover-1024.png">
+<meta property="og:type" content="website">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#12182B">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="依《宿曜經》推算三九祕宿、值日宿、宿性七類、曜宿三日與三十日名。">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="三九祕宿">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">三九秘宿・擇日</p>
+  <h1>文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經</h1>
+  <p class="byline">唐・不空 譯　楊景風 修注　底本 CBETA T21n1299</p>
+  <p class="sub">二十七宿隨月亮輪值，一日一宿。以生辰定出命宿，其餘二十六宿依序各得其位，各有宜忌。生辰為<strong>農曆</strong>。</p>
+
+  <div class="bar">
+    <div class="field"><label for="bm">生辰・農曆月</label><select id="bm"></select></div>
+    <div class="field"><label for="bd">生辰・農曆日</label><select id="bd"></select></div>
+    <label class="chk"><input type="checkbox" id="bleap"> 閏月</label>
+    <div class="field"><label for="qd8">要看的日子（國曆）</label>
+      <input type="date" id="qd8"></div>
+  </div>
+
+  <div class="heads">
+    <div class="head ming"><div class="k">命 宿</div><div class="v" id="hMing">—</div></div>
+    <div class="head ye"><div class="k">業 宿</div><div class="v" id="hYe">—</div></div>
+    <div class="head tai"><div class="k">胎 宿</div><div class="v" id="hTai">—</div></div>
+  </div>
+
+  <div class="born">
+    <h2 id="bnTitle">—</h2>
+    <div class="sub2" id="bnSub"></div>
+    <div class="body" id="bnBody"></div>
+    <div class="attrs" id="bnAttrs"></div>
+    <div class="cn" id="bnCn"></div>
+  </div>
+
+  <div class="ring-wrap">
+    <figure>
+      <svg id="ring" viewBox="0 0 460 460" role="img" aria-labelledby="ringTitle">
+        <title id="ringTitle">二十七宿月輪，自命宿順行</title>
+      </svg>
+      <figcaption>自命宿（頂端）順行，每九宿一輪：內圈一九、中圈二九、外圈三九</figcaption>
+    </figure>
+
+    <div class="stack">
+    <div class="paper">
+      <h2>這一天對你</h2>
+      <div class="today">
+        <span class="xiu" id="tXiu">—</span>
+        <span class="role" id="tRole">—</span>
+      </div>
+      <p class="cal" id="tCal" style="font-family:var(--mono);font-size:12px;color:#6B6B6B;margin:0 0 12px"></p>
+      <p class="gloss" id="tGloss"></p>
+      <dl class="dl">
+        <dt>宜</dt><dd id="tYi"></dd>
+        <dt>忌</dt><dd id="tJi"></dd>
+        <dt>日名</dt><dd id="tN"></dd>
+        <dt>曜</dt><dd id="tY"></dd>
+        <dt>宿性</dt><dd id="tX"></dd>
+        <dt>類宜</dt><dd id="tXy"></dd>
+      </dl>
+    </div>
+
+    <div class="paper">
+      <h2>二十七宿各歸何位</h2>
+      <div class="tbl" id="tbl"></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="picker">
+    <h3 class="sec" style="margin-top:0">想做這件事，哪些日子合適</h3>
+    <div class="chips" id="chips"></div>
+    <div class="months" id="months"></div>
+  </div>
+
+  <div class="pair">
+    <h3 class="sec" style="margin-top:0">合盤・結交法</h3>
+    <div class="pair-in">
+      <div class="field"><label for="om">對方生辰・農曆月</label><select id="om"></select></div>
+      <div class="field"><label for="od">對方生辰・農曆日</label><select id="od"></select></div>
+      <label class="chk"><input type="checkbox" id="oleap"> 閏月</label>
+    </div>
+    <div class="pair-cards">
+      <div class="pcard"><div class="dir">我 看 對 方</div><div class="line" id="p1"></div><div class="vd" id="v1"></div></div>
+      <div class="pcard"><div class="dir">對 方 看 我</div><div class="line" id="p2"></div><div class="vd" id="v2"></div></div>
+    </div>
+    <div class="verdict" id="pv"></div>
+    <div class="pair-src">卷上：「凡與人初結交者，先須看彼人命宿押我何宿。又看我命宿押彼人何宿。大抵以榮安成友親為善，堪結交，自餘並惡不可與相知。以為秘法耳。」<br>此法不對稱——我看對方與對方看我可以是兩種結果，故須兩邊各看一次。</div>
+  </div>
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2 id="shTitle">個人月份吉凶表</h2>
+      <span class="sheet-meta" id="shMeta"></span>
+      <button class="btn" id="shPrint">列印／存 PDF</button>
+    </div>
+    <div class="tbl-scroll">
+    <table class="mtbl">
+      <thead><tr><th>日</th><th>週</th><th>農曆</th><th>值日宿</th><th>曜宿</th><th>位</th><th>宜</th><th>忌</th></tr></thead>
+      <tbody id="shBody"></tbody>
+    </table>
+    </div>
+    <p class="tbl-hint">表格較寬，可左右滑動檢視。</p>
+    <div class="sheet-foot" id="shFoot"></div>
+  </div>
+
+  <div class="note">
+    <p><b>曆別</b>　生辰為<b>農曆</b>（閏月照本月起宿，閏五月＝五月起參宿，故勾選閏月不改變結果）；查詢日輸入<b>國曆</b>，內部轉農曆後查本經曆表，故全程只用一套宿曆。</p>
+    <p><b>這張表怎麼來的</b>　二十七宿去牛宿，依「室壁奎婁胃昴畢觜參井鬼柳星張翼軫角亢氐房心尾箕斗女虛危」順行。每月起宿：正月室、二月奎、三月胃、四月畢、五月參、六月鬼、七月張、八月角、九月氐、十月心、十一月斗、十二月虛。與卷下「生日數加十三、自望宿順數」的略算法互為印證。</p>
+    <p><b>值日宿依本經陰曆法</b>　三九盤只有二十七位，故值日宿亦取二十七宿（去牛宿）。輸入國曆日期，先轉農曆，再依月起宿表順數。與求命宿同用一套曆，內部自洽。<b>不採農民曆的二十八宿值日</b>——那一套含牛宿、依國曆連續輪值、逐年推移，同一天會得出不同的宿。</p>
+    <p><b>表定小月遇三十日</b>　本經曆表為理想曆（六、七、十月為大月，餘為小月）。真實農曆若某小月實有三十日，該日順推（即次月起宿之宿），畫面與清單標明。</p>
+    <p><b>業宿判語</b>　本工具標「不宜決策，所作事倍功半」。出處異文：卷上作「所作皆吉利、吉祥」，卷下〈三必秘要法〉作「所作善惡亦不成就甚衰」，東密傳習從卷下並加重為「所作都難成就，且衰損」。兩說相反，現行判語取其中道，異文留此備查。擇日清單將業宿另立一項，不混入吉日推薦。</p>
+    <p><b>三輪頭</b>　命、胎、業為一九、二九、三九的三個輪頭。古有將此三者並列為「不宜做重要決策、不宜做重要的事」之說；其中業宿日尤被指為所作難成就且衰損。</p>
+    <p><b>本表為理想曆</b>　全年三百五十一日，恰為二十七宿十三輪，不隨實際月大小浮動；同一農曆月日在任何年份皆得同宿。</p>
+    <p><b>三十日名</b>　白月一至十五日、黑月十六至三十日，各有其名與所主之神，日與日＋十五同名（如二日與十七日同為得財日）。此層只依農曆日，與生辰、值日宿皆無關，屬第四層。月表在農曆欄後附二字簡名，表尾列十五日名全表。<br>四層並列：<b>三九之位</b>（這一天對你）、<b>宿性七類</b>（這一天的性質）、<b>曜宿三日</b>（宿與星期相合之特殊日）、<b>三十日名</b>（農曆日自身之名）。彼此可能牴觸，工具不代為裁決。</p>
+    <p><b>曜宿三日</b>　值日宿與七曜（＝星期）相合，另成三種特殊日：<b>甘露吉祥日</b>（軫日／畢月／尾火／柳水／鬼木／房金／星土）宜學道求法、受密印習真言；<b>金剛峯日</b>（尾日／心月／壁火／昴水／井木／張金／亢土）宜降伏魔怨、持日天子真言；<b>羅剎日</b>（胃日／鬼月／翼火／參水／氐木／奎金／柳土）不宜舉動百事，唯射獵及諸損害之事。三類互斥，同一日不會兼屬兩類。<br>此層與三九之位可能牴觸——例如榮宿日同時是羅剎日。工具兩者並列，<b>不代為裁決</b>。</p>
+    <p><b>宿性七類</b>　二十七宿另按性質分七類：安重（畢翼斗壁）、和善（觜角房奎）、毒害（參柳心尾）、急速（鬼軫胃婁）、猛惡（星張箕室）、輕燥又名行宿（井亢女虛危）、剛柔（昴氐）。與逐宿的宜忌、三九之位並行，屬另一層——三九看的是「這一天對你」，宿性看的是「這一天本身是什麼性質」。<br><b>卷上與卷下各有一版，本工具兩版並列不合併</b>：卷上版較簡且每類附「此宿生人」，卷下版宜事甚詳但無此層。類屬亦有異文——急速類卷上作鬼軫<b>胃</b>婁、卷下作鬼軫<b>牛</b>婁（胃宿卷下改入猛惡）；工具的類屬<b>依卷上</b>，故仍為去牛之二十七宿。<br><b>白話補充為今譯，不是經文，也不是古注</b>；以卷下版為底翻寫，僅供理解。毒害、猛惡二類原文所列悉為戰陣刑殺劫盜之事，白話照譯未加轉圜，亦未代為引申現代用法。判事、引用一律以原文為準。</p>
+    <p><b>十一宿義</b>　依古法原文判語，未作轉譯。本工具為個人使用。</p>
+    <p style="margin-top:14px">擇日之義在趨吉避凶增順緣，不在消極認命。</p>
+  </div>
+</div>
+
+<script>
+
+/* ── 引擎二：solarlunar 2.0.7（農曆月日）── */
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.solarLunar = {}));
+})(this, (function (exports) { 'use strict';
+
+  /**
+   * 农历 1900-2100 的润大小信息表
+   * @return Array
+   */
+  var lunarInfo = [0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2,//1900-1909
+    0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540, 0x0d6a0, 0x0ada2, 0x095b0, 0x14977,//1910-1919
+    0x04970, 0x0a4b0, 0x0b4b5, 0x06a50, 0x06d40, 0x1ab54, 0x02b60, 0x09570, 0x052f2, 0x04970,//1920-1929
+    0x06566, 0x0d4a0, 0x0ea50, 0x06e95, 0x05ad0, 0x02b60, 0x186e3, 0x092e0, 0x1c8d7, 0x0c950,//1930-1939
+    0x0d4a0, 0x1d8a6, 0x0b550, 0x056a0, 0x1a5b4, 0x025d0, 0x092d0, 0x0d2b2, 0x0a950, 0x0b557,//1940-1949
+    0x06ca0, 0x0b550, 0x15355, 0x04da0, 0x0a5b0, 0x14573, 0x052b0, 0x0a9a8, 0x0e950, 0x06aa0,//1950-1959
+    0x0aea6, 0x0ab50, 0x04b60, 0x0aae4, 0x0a570, 0x05260, 0x0f263, 0x0d950, 0x05b57, 0x056a0,//1960-1969
+    0x096d0, 0x04dd5, 0x04ad0, 0x0a4d0, 0x0d4d4, 0x0d250, 0x0d558, 0x0b540, 0x0b6a0, 0x195a6,//1970-1979
+    0x095b0, 0x049b0, 0x0a974, 0x0a4b0, 0x0b27a, 0x06a50, 0x06d40, 0x0af46, 0x0ab60, 0x09570,//1980-1989
+    0x04af5, 0x04970, 0x064b0, 0x074a3, 0x0ea50, 0x06b58, 0x05ac0, 0x0ab60, 0x096d5, 0x092e0,//1990-1999
+    0x0c960, 0x0d954, 0x0d4a0, 0x0da50, 0x07552, 0x056a0, 0x0abb7, 0x025d0, 0x092d0, 0x0cab5,//2000-2009
+    0x0a950, 0x0b4a0, 0x0baa4, 0x0ad50, 0x055d9, 0x04ba0, 0x0a5b0, 0x15176, 0x052b0, 0x0a930,//2010-2019
+    0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260, 0x0ea65, 0x0d530,//2020-2029
+    0x05aa0, 0x076a3, 0x096d0, 0x04afb, 0x04ad0, 0x0a4d0, 0x1d0b6, 0x0d250, 0x0d520, 0x0dd45,//2030-2039
+    0x0b5a0, 0x056d0, 0x055b2, 0x049b0, 0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0,//2040-2049
+    /**Add By JJonline@JJonline.Cn**/
+    0x14b63, 0x09370, 0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0,//2050-2059
+    0x092e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0, 0x0a6d0, 0x055d4,//2060-2069
+    0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50, 0x055a0, 0x0aba4, 0x0a5b0, 0x052b0,//2070-2079
+    0x0b273, 0x06930, 0x07337, 0x06aa0, 0x0ad50, 0x14b55, 0x04b60, 0x0a570, 0x054e4, 0x0d160,//2080-2089
+    0x0e968, 0x0d520, 0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a4d0, 0x0d150, 0x0f252,//2090-2099
+    0x0d520];//2100;
+
+  /**
+   * 公历每个月份的天数普通表
+   * @Array Of Property
+   * @return Number
+   */
+  var solarMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  /**
+   * 天干地支之天干速查表
+   * @Array Of Property trans['甲','乙','丙','丁','戊','己','庚','辛','壬','癸']
+   * @return Cn string
+   */
+  var gan = [
+    '\u7532',
+    '\u4e59',
+    '\u4e19',
+    '\u4e01',
+    '\u620a',
+    '\u5df1',
+    '\u5e9a',
+    '\u8f9b',
+    '\u58ec',
+    '\u7678'
+  ];
+
+  /**
+   * 天干地支之地支速查表
+   * @Array Of Property
+   * @trans['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥']
+   * @return Cn string
+   */
+  var zhi = [
+    '\u5b50',
+    '\u4e11',
+    '\u5bc5',
+    '\u536f',
+    '\u8fb0',
+    '\u5df3',
+    '\u5348',
+    '\u672a',
+    '\u7533',
+    '\u9149',
+    '\u620c',
+    '\u4ea5'
+  ];
+
+  /**
+   * 天干地支之地支速查表<=>生肖
+   * @Array Of Property
+   * @trans['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪']
+   * @return Cn string
+   */
+  var animals = [
+    '\u9f20',
+    '\u725b',
+    '\u864e',
+    '\u5154',
+    '\u9f99',
+    '\u86c7',
+    '\u9a6c',
+    '\u7f8a',
+    '\u7334',
+    '\u9e21',
+    '\u72d7',
+    '\u732a'
+  ];
+
+  /**
+   * 24节气速查表
+   * @Array Of Property
+   * @trans['小寒','大寒','立春','雨水','惊蛰','春分','清明','谷雨','立夏','小满','芒种','夏至','小暑','大暑','立秋','处暑','白露','秋分','寒露','霜降','立冬','小雪','大雪','冬至']
+   * @return Cn string
+   */
+  var lunarTerm = [
+    '\u5c0f\u5bd2', '\u5927\u5bd2', '\u7acb\u6625', '\u96e8\u6c34', '\u60ca\u86f0', '\u6625\u5206', '\u6e05\u660e', '\u8c37\u96e8', '\u7acb\u590f', '\u5c0f\u6ee1', '\u8292\u79cd', '\u590f\u81f3', '\u5c0f\u6691', '\u5927\u6691', '\u7acb\u79cb', '\u5904\u6691', '\u767d\u9732', '\u79cb\u5206', '\u5bd2\u9732', '\u971c\u964d', '\u7acb\u51ac', '\u5c0f\u96ea', '\u5927\u96ea', '\u51ac\u81f3'
+  ];
+
+  /**
+   * 1900-2100各年的24节气日期速查表
+   * @Array Of Property
+   * @return 0x string For splice
+   */
+  var lTermInfo = [
+    '9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e', '97bcf97c3598082c95f8c965cc920f',
+    '97bd0b06bdb0722c965ce1cfcc920f', 'b027097bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e',
+    '97bcf97c359801ec95f8c965cc920f', '97bd0b06bdb0722c965ce1cfcc920f', 'b027097bd097c36b0b6fc9274c91aa',
+    '97b6b97bd19801ec9210c965cc920e', '97bcf97c359801ec95f8c965cc920f', '97bd0b06bdb0722c965ce1cfcc920f',
+    'b027097bd097c36b0b6fc9274c91aa', '9778397bd19801ec9210c965cc920e', '97b6b97bd19801ec95f8c965cc920f',
+    '97bd09801d98082c95f8e1cfcc920f', '97bd097bd097c36b0b6fc9210c8dc2', '9778397bd197c36c9210c9274c91aa',
+    '97b6b97bd19801ec95f8c965cc920e', '97bd09801d98082c95f8e1cfcc920f', '97bd097bd097c36b0b6fc9210c8dc2',
+    '9778397bd097c36c9210c9274c91aa', '97b6b97bd19801ec95f8c965cc920e', '97bcf97c3598082c95f8e1cfcc920f',
+    '97bd097bd097c36b0b6fc9210c8dc2', '9778397bd097c36c9210c9274c91aa', '97b6b97bd19801ec9210c965cc920e',
+    '97bcf97c3598082c95f8c965cc920f', '97bd097bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa',
+    '97b6b97bd19801ec9210c965cc920e', '97bcf97c3598082c95f8c965cc920f', '97bd097bd097c35b0b6fc920fb0722',
+    '9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e', '97bcf97c359801ec95f8c965cc920f',
+    '97bd097bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e',
+    '97bcf97c359801ec95f8c965cc920f', '97bd097bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa',
+    '97b6b97bd19801ec9210c965cc920e', '97bcf97c359801ec95f8c965cc920f', '97bd097bd07f595b0b6fc920fb0722',
+    '9778397bd097c36b0b6fc9210c8dc2', '9778397bd19801ec9210c9274c920e', '97b6b97bd19801ec95f8c965cc920f',
+    '97bd07f5307f595b0b0bc920fb0722', '7f0e397bd097c36b0b6fc9210c8dc2', '9778397bd097c36c9210c9274c920e',
+    '97b6b97bd19801ec95f8c965cc920f', '97bd07f5307f595b0b0bc920fb0722', '7f0e397bd097c36b0b6fc9210c8dc2',
+    '9778397bd097c36c9210c9274c91aa', '97b6b97bd19801ec9210c965cc920e', '97bd07f1487f595b0b0bc920fb0722',
+    '7f0e397bd097c36b0b6fc9210c8dc2', '9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e',
+    '97bcf7f1487f595b0b0bb0b6fb0722', '7f0e397bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa',
+    '97b6b97bd19801ec9210c965cc920e', '97bcf7f1487f595b0b0bb0b6fb0722', '7f0e397bd097c35b0b6fc920fb0722',
+    '9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e', '97bcf7f1487f531b0b0bb0b6fb0722',
+    '7f0e397bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa', '97b6b97bd19801ec9210c965cc920e',
+    '97bcf7f1487f531b0b0bb0b6fb0722', '7f0e397bd07f595b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa',
+    '97b6b97bd19801ec9210c9274c920e', '97bcf7f0e47f531b0b0bb0b6fb0722', '7f0e397bd07f595b0b0bc920fb0722',
+    '9778397bd097c36b0b6fc9210c91aa', '97b6b97bd197c36c9210c9274c920e', '97bcf7f0e47f531b0b0bb0b6fb0722',
+    '7f0e397bd07f595b0b0bc920fb0722', '9778397bd097c36b0b6fc9210c8dc2', '9778397bd097c36c9210c9274c920e',
+    '97b6b7f0e47f531b0723b0b6fb0722', '7f0e37f5307f595b0b0bc920fb0722', '7f0e397bd097c36b0b6fc9210c8dc2',
+    '9778397bd097c36b0b70c9274c91aa', '97b6b7f0e47f531b0723b0b6fb0721', '7f0e37f1487f595b0b0bb0b6fb0722',
+    '7f0e397bd097c35b0b6fc9210c8dc2', '9778397bd097c36b0b6fc9274c91aa', '97b6b7f0e47f531b0723b0b6fb0721',
+    '7f0e27f1487f595b0b0bb0b6fb0722', '7f0e397bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa',
+    '97b6b7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e397bd097c35b0b6fc920fb0722',
+    '9778397bd097c36b0b6fc9274c91aa', '97b6b7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722',
+    '7f0e397bd097c35b0b6fc920fb0722', '9778397bd097c36b0b6fc9274c91aa', '97b6b7f0e47f531b0723b0b6fb0721',
+    '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e397bd07f595b0b0bc920fb0722', '9778397bd097c36b0b6fc9274c91aa',
+    '97b6b7f0e47f531b0723b0787b0721', '7f0e27f0e47f531b0b0bb0b6fb0722', '7f0e397bd07f595b0b0bc920fb0722',
+    '9778397bd097c36b0b6fc9210c91aa', '97b6b7f0e47f149b0723b0787b0721', '7f0e27f0e47f531b0723b0b6fb0722',
+    '7f0e397bd07f595b0b0bc920fb0722', '9778397bd097c36b0b6fc9210c8dc2', '977837f0e37f149b0723b0787b0721',
+    '7f07e7f0e47f531b0723b0b6fb0722', '7f0e37f5307f595b0b0bc920fb0722', '7f0e397bd097c35b0b6fc9210c8dc2',
+    '977837f0e37f14998082b0787b0721', '7f07e7f0e47f531b0723b0b6fb0721', '7f0e37f1487f595b0b0bb0b6fb0722',
+    '7f0e397bd097c35b0b6fc9210c8dc2', '977837f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721',
+    '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e397bd097c35b0b6fc920fb0722', '977837f0e37f14998082b0787b06bd',
+    '7f07e7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e397bd097c35b0b6fc920fb0722',
+    '977837f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722',
+    '7f0e397bd07f595b0b0bc920fb0722', '977837f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721',
+    '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e397bd07f595b0b0bc920fb0722', '977837f0e37f14998082b0787b06bd',
+    '7f07e7f0e47f149b0723b0787b0721', '7f0e27f0e47f531b0b0bb0b6fb0722', '7f0e397bd07f595b0b0bc920fb0722',
+    '977837f0e37f14998082b0723b06bd', '7f07e7f0e37f149b0723b0787b0721', '7f0e27f0e47f531b0723b0b6fb0722',
+    '7f0e397bd07f595b0b0bc920fb0722', '977837f0e37f14898082b0723b02d5', '7ec967f0e37f14998082b0787b0721',
+    '7f07e7f0e47f531b0723b0b6fb0722', '7f0e37f1487f595b0b0bb0b6fb0722', '7f0e37f0e37f14898082b0723b02d5',
+    '7ec967f0e37f14998082b0787b0721', '7f07e7f0e47f531b0723b0b6fb0722', '7f0e37f1487f531b0b0bb0b6fb0722',
+    '7f0e37f0e37f14898082b0723b02d5', '7ec967f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721',
+    '7f0e37f1487f531b0b0bb0b6fb0722', '7f0e37f0e37f14898082b072297c35', '7ec967f0e37f14998082b0787b06bd',
+    '7f07e7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e37f0e37f14898082b072297c35',
+    '7ec967f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722',
+    '7f0e37f0e366aa89801eb072297c35', '7ec967f0e37f14998082b0787b06bd', '7f07e7f0e47f149b0723b0787b0721',
+    '7f0e27f1487f531b0b0bb0b6fb0722', '7f0e37f0e366aa89801eb072297c35', '7ec967f0e37f14998082b0723b06bd',
+    '7f07e7f0e47f149b0723b0787b0721', '7f0e27f0e47f531b0723b0b6fb0722', '7f0e37f0e366aa89801eb072297c35',
+    '7ec967f0e37f14998082b0723b06bd', '7f07e7f0e37f14998083b0787b0721', '7f0e27f0e47f531b0723b0b6fb0722',
+    '7f0e37f0e366aa89801eb072297c35', '7ec967f0e37f14898082b0723b02d5', '7f07e7f0e37f14998082b0787b0721',
+    '7f07e7f0e47f531b0723b0b6fb0722', '7f0e36665b66aa89801e9808297c35', '665f67f0e37f14898082b0723b02d5',
+    '7ec967f0e37f14998082b0787b0721', '7f07e7f0e47f531b0723b0b6fb0722', '7f0e36665b66a449801e9808297c35',
+    '665f67f0e37f14898082b0723b02d5', '7ec967f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721',
+    '7f0e36665b66a449801e9808297c35', '665f67f0e37f14898082b072297c35', '7ec967f0e37f14998082b0787b06bd',
+    '7f07e7f0e47f531b0723b0b6fb0721', '7f0e26665b66a449801e9808297c35', '665f67f0e37f1489801eb072297c35',
+    '7ec967f0e37f14998082b0787b06bd', '7f07e7f0e47f531b0723b0b6fb0721', '7f0e27f1487f531b0b0bb0b6fb0722'
+  ];
+
+  /**
+   * 数字转中文速查表
+   * @Array Of Property
+   * @trans ['日','一','二','三','四','五','六','七','八','九','十']
+   * @return Cn string
+   */
+  var nStr1 = [
+    '\u65e5',
+    '\u4e00',
+    '\u4e8c',
+    '\u4e09',
+    '\u56db',
+    '\u4e94',
+    '\u516d',
+    '\u4e03',
+    '\u516b',
+    '\u4e5d',
+    '\u5341'
+  ];
+
+  /**
+   * 日期转农历称呼速查表
+   * @Array Of Property
+   * @trans ['初','十','廿','卅']
+   * @return Cn string
+   */
+  var nStr2 = ['\u521d', '\u5341', '\u5eff', '\u5345'];
+
+  /**
+   * 月份转农历称呼速查表
+   * @Array Of Property
+   * @trans ['正','一','二','三','四','五','六','七','八','九','十','冬','腊']
+   * @return Cn string
+   */
+  var nStr3 = [
+    '\u6b63',
+    '\u4e8c',
+    '\u4e09',
+    '\u56db',
+    '\u4e94',
+    '\u516d',
+    '\u4e03',
+    '\u516b',
+    '\u4e5d',
+    '\u5341',
+    '\u51ac',
+    '\u814a'
+  ];
+
+  /**
+   * 年份数字转中文速查表
+   * @Array Of Property
+   * @trans ['零','一','二','三','四','五','六','七','八','九','十']
+   * @return Cn string
+   */
+  var nStr4 = [
+    '\u96f6',
+    '\u4e00',
+    '\u4e8c',
+    '\u4e09',
+    '\u56db',
+    '\u4e94',
+    '\u516d',
+    '\u4e03',
+    '\u516b',
+    '\u4e5d',
+    '\u5341'
+  ];
+
+  /**
+   * @1900-2100区间内的公历、农历互转
+   * @charset  UTF-8
+   * @author  Ajing(JJonline@JJonline.Cn), Modernized by OpenCode
+   * @Time  2014-7-21
+   * @Version  $ID$
+   * @公历转农历：solarLunar.solar2lunar(1987,11,01); //[you can ignore params of prefix 0]
+   * @农历转公历：solarLunar.lunar2solar(1987,09,10); //[you can ignore params of prefix 0]
+   * @link http://blog.jjonline.cn/userInterFace/173.html
+   */
+
+
+  const solarLunar = {
+    lunarInfo,
+    solarMonth,
+    gan,
+    zhi,
+    animals,
+    lunarTerm,
+    lTermInfo,
+    nStr1,
+    nStr2,
+    nStr3,
+    nStr4,
+
+    /**
+     * 返回农历y年一整年的总天数
+     * @param {number} y - lunar Year
+     * @returns {number}
+     * @eg:var count = solarLunar.lYearDays(1987) ;//count=387
+     */
+    lYearDays(y) {
+      let sum = 348;
+      const info = lunarInfo[y - 1900];
+      // 优化：直接计算位数，减少循环
+      sum += info & 0x8000 ? 1 : 0;
+      sum += info & 0x4000 ? 1 : 0;
+      sum += info & 0x2000 ? 1 : 0;
+      sum += info & 0x1000 ? 1 : 0;
+      sum += info & 0x0800 ? 1 : 0;
+      sum += info & 0x0400 ? 1 : 0;
+      sum += info & 0x0200 ? 1 : 0;
+      sum += info & 0x0100 ? 1 : 0;
+      sum += info & 0x0080 ? 1 : 0;
+      sum += info & 0x0040 ? 1 : 0;
+      sum += info & 0x0020 ? 1 : 0;
+      sum += info & 0x0010 ? 1 : 0;
+      return sum + solarLunar.leapDays(y);
+    },
+
+    /**
+     * 返回农历y年闰月是哪个月；若y年没有闰月 则返回0
+     * @param {number} y - lunar Year
+     * @returns {number} (0-12)
+     * @eg:var leapMonth = solarLunar.leapMonth(1987) ;//leapMonth=6
+     */
+    leapMonth(y) {
+      //闰字编码 \u95f0
+      return lunarInfo[y - 1900] & 0xf;
+    },
+
+    /**
+     * 返回农历y年闰月的天数 若该年没有闰月则返回0
+     * @param {number} y - lunar Year
+     * @returns {number} (0、29、30)
+     * @eg:var leapMonthDay = solarLunar.leapDays(1987) ;//leapMonthDay=29
+     */
+    leapDays(y) {
+      if (solarLunar.leapMonth(y)) {
+        return lunarInfo[y - 1900] & 0x10000 ? 30 : 29;
+      }
+      return 0;
+    },
+
+    /**
+     * 返回农历 y 年 m 月（非闰月）的总天数，计算 m 为闰月时的天数请使用 leapDays 方法
+     * @param {number} y - lunar Year
+     * @param {number} m - lunar Month
+     * @returns {number} (-1、29、30)
+     * @eg:var MonthDay = solarLunar.monthDays(1987,9) ;//MonthDay=29
+     */
+    monthDays(y, m) {
+      if (m > 12 || m < 1) {
+        return -1;
+      } //月份参数从1至12，参数错误返回-1
+      return lunarInfo[y - 1900] & (0x10000 >> m) ? 30 : 29;
+    },
+
+    /**
+     * 获取时辰干支
+     * @param {number} h - 公历小时 (0-23)
+     * @param {number} dayGanIndex - 日干索引 (0-9)，0=甲，1=乙，...，9=癸
+     * @returns {string} 时辰干支，如 "甲子"
+     * @eg:var shichen = solarLunar.getShiChen(23, 0); // 23:00 的子时，日干为甲时
+     */
+    getShiChen(h, dayGanIndex) {
+      const hourZhiIndex = (h + 1) / 2 >= 24 ? 0 : Math.floor((h + 1) / 2) % 12;
+      const hourGanIndex = (dayGanIndex * 2 + hourZhiIndex) % 10;
+      return gan[hourGanIndex] + zhi[hourZhiIndex];
+    },
+
+    /**
+     * 返回公历(!)y年m月的天数
+     * @param {number} y - solar Year
+     * @param {number} m - solar Month
+     * @returns {number} (-1、28、29、30、31)
+     * @eg:var solarMonthDay = solarLunar.solarDays(1987) ;//solarMonthDay=30
+     */
+    solarDays(y, m) {
+      if (m > 12 || m < 1) {
+        return -1;
+      } //若参数错误 返回-1
+      const ms = m - 1;
+      if (ms === 1) {
+        //2月份的闰平规律测算后确认返回28或29
+        return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0 ? 29 : 28;
+      } else {
+        return solarMonth[ms];
+      }
+    },
+
+    /**
+     * 传入offset偏移量返回干支
+     * @param {number} offset - 相对甲子的偏移量
+     * @returns {string} Cn string
+     */
+    toGanZhi(offset) {
+      return gan[offset % 10] + zhi[offset % 12];
+    },
+
+    /**
+     * 传入公历(!) y 年获得该年第 n 个节气的公历日期
+     * @param {number} y - 公历年(1900-2100)；n二十四节气中的第几个节气(1~24)；从n=1(小寒)算起
+     * @param {number} n - 二十四节气中的第几个节气(1~24)
+     * @returns {number}
+     * @eg:var _24 = solarLunar.getTerm(1987,3) ;//_24=4;意即1987年2月4日立春
+     */
+    getTerm(y, n) {
+      if (y < 1900 || y > 2100) {
+        return -1;
+      }
+      if (n < 1 || n > 24) {
+        return -1;
+      }
+      const _table = lTermInfo[y - 1900];
+      const _info = [
+        parseInt('0x' + _table.substr(0, 5)).toString(),
+        parseInt('0x' + _table.substr(5, 5)).toString(),
+        parseInt('0x' + _table.substr(10, 5)).toString(),
+        parseInt('0x' + _table.substr(15, 5)).toString(),
+        parseInt('0x' + _table.substr(20, 5)).toString(),
+        parseInt('0x' + _table.substr(25, 5)).toString(),
+      ];
+      const _calDay = [
+        _info[0].substr(0, 1),
+        _info[0].substr(1, 2),
+        _info[0].substr(3, 1),
+        _info[0].substr(4, 2),
+
+        _info[1].substr(0, 1),
+        _info[1].substr(1, 2),
+        _info[1].substr(3, 1),
+        _info[1].substr(4, 2),
+
+        _info[2].substr(0, 1),
+        _info[2].substr(1, 2),
+        _info[2].substr(3, 1),
+        _info[2].substr(4, 2),
+
+        _info[3].substr(0, 1),
+        _info[3].substr(1, 2),
+        _info[3].substr(3, 1),
+        _info[3].substr(4, 2),
+
+        _info[4].substr(0, 1),
+        _info[4].substr(1, 2),
+        _info[4].substr(3, 1),
+        _info[4].substr(4, 2),
+
+        _info[5].substr(0, 1),
+        _info[5].substr(1, 2),
+        _info[5].substr(3, 1),
+        _info[5].substr(4, 2),
+      ];
+      return parseInt(_calDay[n - 1]);
+    },
+
+    /**
+     * 传入农历年份数字返回汉语通俗表示法
+     * @param {number} y - lunar year
+     * @returns {string}
+     * @eg:
+     */
+    toChinaYear(y) {
+      //年 => \u5E74
+      const oxxx = Math.floor(y / 1000);
+      const xoxx = Math.floor((y % 1000) / 100);
+      const xxox = Math.floor((y % 100) / 10);
+      const xxxo = y % 10;
+
+      return nStr4[oxxx] + nStr4[xoxx] + nStr4[xxox] + nStr4[xxxo] + '\u5E74';
+    },
+
+    /**
+     * 传入农历数字月份返回汉语通俗表示法
+     * @param {number} m - lunar month
+     * @returns {string}
+     * @eg:var cnMonth = solarLunar.toChinaMonth(12) ;//cnMonth='腊月'
+     */
+    toChinaMonth(m) {
+      // 月 => \u6708
+      if (m > 12 || m < 1) {
+        return -1;
+      } //若参数错误 返回-1
+      let s = nStr3[m - 1];
+      s += '\u6708'; //加上月字
+      return s;
+    },
+
+    /**
+     * 传入农历日期数字返回汉字表示法
+     * @param {number} d - lunar day
+     * @returns {string} Cn string
+     * @eg:var cnDay = solarLunar.toChinaDay(21) ;//cnMonth='廿一'
+     */
+    toChinaDay(d) {
+      //日 => \u65e5
+      let s = '';
+      switch (d) {
+      case 10:
+        s = '\u521d\u5341';
+        break;
+      case 20:
+        s = '\u4e8c\u5341';
+        break;
+      case 30:
+        s = '\u4e09\u5341';
+        break;
+      default:
+        s = nStr2[Math.floor(d / 10)];
+        s += nStr1[d % 10];
+      }
+      return s;
+    },
+
+    /**
+     * 年份转生肖 => 精确划分生肖分界线是"立春"
+     * @param {number} y - year
+     * @param {number} [m] - month (可选，用于精确计算)
+     * @param {number} [d] - day (可选，用于精确计算)
+     * @returns {string} Cn string
+     * @eg:var animal = solarLunar.getAnimal(1987) ;//animal='兔'
+     */
+    getAnimal(y, m, d) {
+      // 如果提供了月日参数，基于立春进行精确计算
+      if (m !== undefined && d !== undefined) {
+        const term3 = solarLunar.getTerm(y, 3); // 立春日期
+        // 如果日期在立春之前，则生肖按上一年计算
+        if (m < 2 || (m === 2 && d < term3)) {
+          y = y - 1;
+        }
+      }
+      return animals[(y - 4) % 12];
+    },
+
+    /**
+     * 传入公历年月日获得详细的公历、农历object信息 <=>JSON
+     * @param {number} y - solar year
+     * @param {number} m - solar month
+     * @param {number} d - solar day
+     * @returns {object} JSON object
+     * @eg:console.log(solarLunar.solar2lunar(1987,11,01));
+     */
+    solar2lunar(y, m, d) {
+      //参数区间1900.1.31~2100.12.31
+      // 输入验证
+      if (y == null || m == null || d == null) {
+        const objDate = new Date();
+        y = objDate.getFullYear();
+        m = objDate.getMonth() + 1;
+        d = objDate.getDate();
+      }
+
+      // 类型转换和验证
+      y = Number(y);
+      m = Number(m);
+      d = Number(d);
+
+      if (isNaN(y) || isNaN(m) || isNaN(d)) {
+        return -1;
+      }
+
+      if (y < 1900 || y > 2100) {
+        return -1;
+      } //年份限定、上限
+      if (y === 1900 && m === 1 && d < 31) {
+        return -1;
+      } //下限
+
+      // 验证月份和日期的有效性
+      if (m < 1 || m > 12) {
+        return -1;
+      }
+      const maxDay = solarLunar.solarDays(y, m);
+      if (d < 1 || d > maxDay) {
+        return -1;
+      }
+
+      const objDate = new Date(y, parseInt(m) - 1, d);
+      let i,
+        temp = 0;
+      //修正ymd参数
+      y = objDate.getFullYear();
+      m = objDate.getMonth() + 1;
+      d = objDate.getDate();
+      let offset =
+        (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) -
+          Date.UTC(1900, 0, 31)) /
+        86400000;
+
+      // 使用原有的线性搜索算法以保持兼容性，但修复变量重声明问题
+      temp = 0;
+      for (i = 1900; i < 2101 && offset > 0; i++) {
+        temp = solarLunar.lYearDays(i);
+        offset -= temp;
+      }
+      if (offset < 0) {
+        offset += temp;
+        i--;
+      }
+
+      const finalYear = i;
+
+      //是否今天
+      const isTodayObj = new Date();
+      let isToday = false;
+      if (
+        isTodayObj.getFullYear() === y &&
+        isTodayObj.getMonth() + 1 === m &&
+        isTodayObj.getDate() === d
+      ) {
+        isToday = true;
+      }
+      //星期几
+      const nWeek = objDate.getDay();
+      const cWeek = nStr1[nWeek];
+      const nWeekAdjusted = nWeek === 0 ? 7 : nWeek; //数字表示周几顺应天朝周一开始的惯例
+
+      //农历年
+      const year = finalYear;
+
+      const leapMonth = solarLunar.leapMonth(finalYear); //闰哪个月
+
+      let isLeap = false;
+
+      //效验闰月
+      for (i = 1; i < 13 && offset > 0; i++) {
+        //闰月
+        if (leapMonth > 0 && i === leapMonth + 1 && isLeap === false) {
+          --i;
+          isLeap = true;
+          temp = solarLunar.leapDays(year); //计算农历闰月天数
+        } else {
+          temp = solarLunar.monthDays(year, i); //计算农历普通月天数
+        }
+        //解除闰月
+        if (isLeap === true && i === leapMonth + 1) {
+          isLeap = false;
+        }
+        offset -= temp;
+      }
+
+      if (offset === 0 && leapMonth > 0 && i === leapMonth + 1) {
+        if (isLeap) {
+          isLeap = false;
+        } else {
+          isLeap = true;
+          --i;
+        }
+      }
+      if (offset < 0) {
+        offset += temp;
+        --i;
+      }
+      //农历月
+      const month = i;
+      //农历日
+      const day = offset + 1;
+
+      //天干地支处理
+      // 注意：干支年以立春为分界线，这是中国传统历法
+      // 立春通常在2月3-5日之间，立春之前出生的人，干支属上一年
+      const sm = m - 1;
+      const term3 = solarLunar.getTerm(y, 3); //该公历年立春日期
+      let gzY = solarLunar.toGanZhi(y - 4); //普通按年份计算，下方尚需按立春节气来修正
+      //依据立春日进行修正gzY
+      // 立春通常在2月3-5日之间，如果日期早于立春，应按上一年计算
+      if (m < 2 || (m === 2 && d < term3)) {
+        gzY = solarLunar.toGanZhi(y - 1 - 4);
+      }
+
+      //月柱 1900年1月小寒以前为 丙子月(60进制12)
+      const firstNode = solarLunar.getTerm(y, m * 2 - 1); //返回当月「节」为几日开始
+      const secondNode = solarLunar.getTerm(y, m * 2); //返回当月「节」为几日开始
+
+      //依据12节气修正干支月
+      // 使用原始的正确算法：年干支索引*12 + 月份 + 偏移
+      let gzM = solarLunar.toGanZhi((y - 1900) * 12 + m + 11);
+      if (d >= firstNode) {
+        gzM = solarLunar.toGanZhi((y - 1900) * 12 + m + 12);
+      }
+
+      //传入的日期的节气与否
+      let isTerm = false;
+      let term = '';
+      if (firstNode === d) {
+        isTerm = true;
+        term = lunarTerm[m * 2 - 2];
+      }
+      if (secondNode === d) {
+        isTerm = true;
+        term = lunarTerm[m * 2 - 1];
+      }
+      //日柱 当月一日与 1900/1/1 相差天数
+      const dayCyclical = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10;
+      const gzD = solarLunar.toGanZhi(dayCyclical + d - 1);
+      return {
+        lYear: year,
+        lMonth: month,
+        lDay: day,
+        animal: solarLunar.getAnimal(year),
+        yearCn: solarLunar.toChinaYear(year),
+        monthCn: (isLeap && leapMonth === month ? '\u95f0' : '') + solarLunar.toChinaMonth(month),
+        dayCn: solarLunar.toChinaDay(day),
+        cYear: y,
+        cMonth: m,
+        cDay: d,
+        gzYear: gzY,
+        gzMonth: gzM,
+        gzDay: gzD,
+        isToday,
+        isLeap,
+        nWeek: nWeekAdjusted, //数字表示周几顺应天朝周一开始的惯例
+        ncWeek: '\u661f\u671f' + cWeek,
+        isTerm,
+        term,
+      };
+    },
+
+    /**
+     * 传入公历年月日以及传入的月份是否闰月获得详细的公历、农历object信息 <=>JSON
+     * @param {number} y - lunar year
+     * @param {number} m - lunar month
+     * @param {number} d - lunar day
+     * @param {boolean} isLeapMonth - lunar month is leap or not.
+     * @returns {object} JSON object
+     * @eg:console.log(solarLunar.lunar2solar(1987,9,10));
+     */
+    lunar2solar(y, m, d, isLeapMonth) {
+      //参数区间1900.1.31~2100.12.1
+      // 输入验证
+      y = Number(y);
+      m = Number(m);
+      d = Number(d);
+      isLeapMonth = Boolean(isLeapMonth); // 确保是布尔值
+
+      if (isNaN(y) || isNaN(m) || isNaN(d)) {
+        return -1;
+      }
+      const leapMonth = solarLunar.leapMonth(y);
+      if (isLeapMonth && leapMonth !== m) {
+        return -1;
+      } //传参要求计算该闰月公历 但该年得出的闰月与传参的月份并不同
+      if ((y === 2100 && m === 12 && d > 1) || (y === 1900 && m === 1 && d < 31)) {
+        return -1;
+      } //超出了最大极限值
+      const day = solarLunar.monthDays(y, m);
+      if (y < 1900 || y > 2100 || d > day) {
+        return -1;
+      } //参数合法性效验
+
+      //计算农历的时间差
+      let offset = 0;
+      for (let i = 1900; i < y; i++) {
+        offset += solarLunar.lYearDays(i);
+      }
+      let leap = 0,
+        isAdd = false;
+      for (let i = 1; i < m; i++) {
+        leap = solarLunar.leapMonth(y);
+        if (!isAdd) {
+          //处理闰月
+          if (leap <= i && leap > 0) {
+            offset += solarLunar.leapDays(y);
+            isAdd = true;
+          }
+        }
+        offset += solarLunar.monthDays(y, i);
+      }
+      //转换闰月农历 需补充该年闰月的前一个月的时差
+      if (isLeapMonth) {
+        offset += day;
+      }
+      //1900年农历正月一日的公历时间为1900年1月30日0时0分0秒(该时间也是本农历的最开始起始点)
+      const stmap = Date.UTC(1900, 1, 30, 0, 0, 0);
+      const calObj = new Date((offset + d - 31) * 86400000 + stmap);
+      const cY = calObj.getUTCFullYear();
+      const cM = calObj.getUTCMonth() + 1;
+      const cD = calObj.getUTCDate();
+
+      return solarLunar.solar2lunar(cY, cM, cD);
+    },
+
+    /**
+     * 获取指定日期的传统节日
+     * @param {number} year - 公历年
+     * @param {number} month - 公历月
+     * @param {number} day - 公历日
+     * @returns {string[]} 传统节日数组
+     */
+    getFestivals(year, month, day) {
+      const festivals = [];
+      const lunar = solarLunar.solar2lunar(year, month, day);
+      if (lunar === -1) return festivals;
+
+      const { lMonth, lDay } = lunar;
+
+      const fixedFestivals = {
+        '1-1': '春节',
+        '1-15': '元宵节',
+        '5-5': '端午节',
+        '7-7': '七夕节',
+        '8-15': '中秋节',
+        '9-9': '重阳节',
+        '12-8': '腊八节',
+        '12-23': '小年',
+      };
+
+      const key = `${lMonth}-${lDay}`;
+      if (fixedFestivals[key]) {
+        festivals.push(fixedFestivals[key]);
+      }
+
+      if (lMonth === 1 && lDay === 1) {
+        festivals.push('农历新年');
+      }
+
+      if (solarLunar.customFestivals) {
+        solarLunar.customFestivals.forEach((f) => {
+          if (f.month === lMonth && f.day === lDay) {
+            festivals.push(f.name);
+          }
+        });
+      }
+
+      return festivals;
+    },
+
+    /**
+     * 添加自定义农历节日
+     * @param {string} name - 节日名称
+     * @param {number} month - 农历月
+     * @param {number} day - 农历日
+     */
+    addFestival(name, month, day) {
+      if (!solarLunar.customFestivals) {
+        solarLunar.customFestivals = [];
+      }
+      solarLunar.customFestivals.push({ name, month, day });
+    },
+
+    /**
+     * 清除所有自定义节日
+     */
+    clearFestivals() {
+      solarLunar.customFestivals = [];
+    },
+  };
+
+  exports.default = solarLunar;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+//# sourceMappingURL=solarlunar.min.js.map
+
+window.XL_LUNAR = (window.solarLunar && (window.solarLunar.default || window.solarLunar));
+
+
+</script>
+
+<script>
+const SEQ = [...'室壁奎婁胃昴畢觜參井鬼柳星張翼軫角亢氐房心尾箕斗女虛危'];
+
+/* ── 值日宿：本經陰曆法（二十七宿去牛，每月定點起宿）──────────
+   國曆 → 農曆（XL_LUNAR，1900–2100，含閏月）→ 月起宿表順數。
+   閏月照本月起宿，故閏月不改變結果。
+   真實農曆遇三十日而表定為小月時，順推（即次月起宿之宿），並標明。 */
+const MLEN_T = {1:29,2:29,3:29,4:29,5:29,6:30,7:30,8:29,9:29,10:30,11:29,12:29};
+function lunarOf(d){
+  const r = XL_LUNAR.solar2lunar(d.getFullYear(), d.getMonth()+1, d.getDate());
+  return r && r.lMonth ? r : null;
+}
+function xiuOfSolar(d){
+  const r = lunarOf(d);
+  if(!r) return null;
+  return { xiu: xiuOf(r.lMonth, r.lDay), lm: r.lMonth, ld: r.lDay,
+           leap: !!r.isLeap, over: r.lDay > MLEN_T[r.lMonth], cn: r.monthCn + r.dayCn };
+}
+
+const START = {1:'室',2:'奎',3:'胃',4:'畢',5:'參',6:'鬼',7:'張',8:'角',9:'氐',10:'心',11:'斗',12:'虛'};
+const NINE = ['榮','衰','安','危','成','壞','友','親'];
+
+/* 視覺分群（僅供配色，非古法吉凶二分） */
+const GROUP = {
+  命:'停', 胎:'停', 業:'議', 榮:'通', 安:'行', 成:'修',
+  危:'聚', 友:'聚', 親:'聚', 衰:'理', 壞:'理'
+};
+const GCOLOR = {停:'#8A93A6', 議:'#6F6390', 通:'#E0A93B', 行:'#3E7C8C', 修:'#6E8F5A', 聚:'#C48A6A', 理:'#B5483C'};
+
+/* 十一宿義：古法原文判語，未作轉譯 */
+const MEAN = {
+  命:{g:'不宜舉動百事。古有將命、胎、業三輪頭並列為「不宜做重要決策」之說。',
+      yi:'—', ji:'舉動百事、重要決策'},
+  胎:{g:'不宜舉動百事。古有將命、胎、業三輪頭並列為「不宜做重要決策」之說。',
+      yi:'—', ji:'舉動百事、重要決策'},
+  榮:{g:'適用諸事，所作皆吉。', yi:'諸事皆宜', ji:'—'},
+  業:{g:'不宜決策，所作事倍功半。',
+      yi:'—', ji:'決策、重要之事'},
+  衰:{g:'可用以解惡、治病等，但不宜遠行、遷移、買賣、裁衣、剃頭、剪甲等。',
+      yi:'解惡、治病', ji:'遠行、遷移、買賣、裁衣、剃頭、剪甲'},
+  危:{g:'歡聚吉利，並宜交友、婚事、宴友，但不宜遠行、遷移、買賣、裁衣、剃頭、剪甲等。',
+      yi:'歡聚、交友、婚事、宴友', ji:'遠行、遷移、買賣、裁衣、剃頭、剪甲'},
+  壞:{g:'有利於出征、討伐暴惡，壓鎮降伏怨仇之類，但不宜遠行、遷移、買賣、裁衣、剃頭、剪甲等。',
+      yi:'出征、討伐暴惡、壓鎮降伏怨仇', ji:'遠行、遷移、買賣、裁衣、剃頭、剪甲'},
+  安:{g:'適於遷徙、移動、遠行、修園宅臥具之類，並可啟建壇場。',
+      yi:'遷徙、移動、遠行、修園宅臥具、啟建壇場', ji:'—'},
+  成:{g:'適宜求學、問道、合藥、訪師、延壽等。',
+      yi:'求學、問道、合藥、訪師、延壽', ji:'—'},
+  友:{g:'結婚、交友皆大吉。', yi:'結婚、交友', ji:'—'},
+  親:{g:'結婚、交友皆大吉。', yi:'結婚、交友', ji:'—'}
+};
+
+const $ = s => document.querySelector(s);
+const roleOf = i => i===0?'命' : i===9?'業' : i===18?'胎' : NINE[(i%9)-1];
+const idxOf  = (m,d) => (SEQ.indexOf(START[m]) + d - 1) % 27;
+const xiuOf  = (m,d) => SEQ[idxOf(m,d)];
+
+function fillSel(el, n, suffix){
+  el.innerHTML = '';
+  for(let i=1;i<=n;i++){
+    const o=document.createElement('option'); o.value=i; o.textContent=i+suffix; el.appendChild(o);
+  }
+}
+fillSel($('#bm'),12,'月'); fillSel($('#bd'),30,'日');
+fillSel($('#om'),12,'月'); fillSel($('#od'),30,'日');
+$('#bm').value=5; $('#bd').value=5;
+$('#om').value=2; $('#od').value=5;
+$('#qd8').value = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+
+
+function render(){
+  const bm=+$('#bm').value, bd=+$('#bd').value;
+
+  const start = idxOf(bm,bd);
+
+  // 命/業/胎
+  const roleMap = {};                       // 宿 → 位
+  const byRole  = {};                       // 位 → [宿]
+  for(let i=0;i<27;i++){
+    const x = SEQ[(start+i)%27], r = roleOf(i);
+    roleMap[x]=r; (byRole[r]=byRole[r]||[]).push(x);
+  }
+  $('#hMing').textContent = byRole['命'][0];
+  $('#hYe').textContent   = byRole['業'][0];
+  $('#hTai').textContent  = byRole['胎'][0];
+
+  drawRing(start, roleMap);
+  renderBorn(byRole['命'][0]);
+
+  // 這一天
+  const qdate = new Date($('#qd8').value + 'T00:00:00');
+  const L = xiuOfSolar(qdate);
+  if(!L){ $('#tXiu').textContent='—'; $('#tCal').textContent='日期超出農曆換算範圍（1900–2100）。'; return; }
+  const qx = L.xiu, qr = roleMap[qx], mm = MEAN[qr];
+  $('#tXiu').textContent = qx+'宿';
+  $('#tRole').textContent = qr;
+  $('#tRole').style.background = GCOLOR[GROUP[qr]];
+  $('#tCal').textContent =
+    `國曆 ${qdate.getFullYear()}-${String(qdate.getMonth()+1).padStart(2,'0')}-${String(qdate.getDate()).padStart(2,'0')}`
+    + `　農曆${L.cn}　值日宿 ${qx}`
+    + (L.over ? `（本月表定小月，順推）` : '')
+    + `　對農曆 ${bm} 月 ${bd} 日生者為「${qr}」`;
+  $('#tGloss').textContent = mm.g;
+  $('#tYi').textContent = mm.yi;
+  $('#tJi').textContent = mm.ji;
+  const dn = dayName(L.ld);
+  $('#tN').innerHTML = `<b>${dn.n}</b>（${dn.s}）　${dn.y}`
+    + (dn.j==='—' ? '' : `<span style="color:#8A5148">　${dn.j}</span>`);
+  const td = triDay(qx, qdate.getDay());
+  $('#tY').innerHTML = YAO_OF_WD[qdate.getDay()] + '曜（星期' + '日一二三四五六'[qdate.getDay()] + '）'
+    + (td ? `　<b style="color:${td.c}">${td.n}</b>　${td.u}` : '');
+  const qc = XCLASS[qx];
+  const XG = XING[qc];
+  $('#tX').innerHTML = qc + '宿　<span style="font-size:12px;color:#8A7F6B">類屬依卷上（' + XG.x + '）'
+    + (XG.x !== XG.x2 ? '；卷下作 ' + XG.x2 : '') + '</span>';
+  $('#tXy').innerHTML =
+      `<span style="color:#5A6B4A">${XG.g}</span>`
+    + `<br><b>白話</b>　宜　${XG.by}`
+    + (XG.bj.startsWith('原文未列') ? '' : `<br>　　　　忌　<span style="color:#8A5148">${XG.bj}</span>`)
+    + (XG.bx ? `<br>　　　　另　${XG.bx}` : '')
+    + `<br><span style="font-size:11px;color:#8A7F6B">白話為今譯，非經文；判事以下列原文為準。</span>`
+    + `<br><b>〔卷下〕</b>` + XG.y2 + (XG.j2.startsWith('（') ? '' : XG.j2)
+    + `<br><b>〔卷上〕</b>` + XG.y1 + (XG.j1.startsWith('（') ? '' : '　' + XG.j1);
+
+  // 分屬表
+  const order=['命','業','胎','榮','衰','安','危','成','壞','友','親'];
+  const SHORT={命:'百事不宜・不宜重要決策',胎:'百事不宜・不宜重要決策',業:'不宜決策・所作事倍功半',榮:'適用諸事，所作皆吉',
+               衰:'解惡、治病',安:'遷徙、遠行、修園宅、建壇場',危:'歡聚、交友、婚事',
+               成:'求學、問道、合藥、訪師、延壽',壞:'出征、討伐、壓鎮降伏怨仇',
+               友:'結婚、交友大吉',親:'結婚、交友大吉'};
+  $('#tbl').innerHTML = order.map(r=>
+    `<div class="row${r===qr?' on':''}">
+      <div class="tag" style="background:${GCOLOR[GROUP[r]]}">${r}</div>
+      <div><div class="xiulist">${byRole[r].map(x=>x).join('')}</div>
+      <div class="rowsub">${SHORT[r]}</div></div></div>`).join('');
+
+  renderPicker(roleMap);
+  renderPair(roleMap, bm, bd);
+  renderSheet(roleMap, bm, bd);
+}
+
+function drawRing(start, roleMap){
+  const cx=230, cy=230, NS=[]; const svg=$('#ring');
+  const R=[132,168,204];  // 一九 / 二九 / 三九
+  let out=`<title id="ringTitle">二十七宿月輪，自命宿順行</title>
+    <circle cx="${cx}" cy="${cy}" r="96" fill="none" stroke="#2A3454"/>`;
+  R.forEach((r,k)=>{ out+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#232C4C"/>`;
+    out+=`<text class="arc-lab" x="${cx}" y="${cy-r+3}" text-anchor="middle">${['一九','二九','三九'][k]}</text>`;});
+  for(let i=0;i<27;i++){
+    const ring=Math.floor(i/9), pos=i%9;
+    const ang=(-90 + pos*(360/9) + ring*4) * Math.PI/180;
+    const r=R[ring], x=cx+r*Math.cos(ang), y=cy+r*Math.sin(ang);
+    const xi=SEQ[(start+i)%27], role=roleMap[xi], c=GCOLOR[GROUP[role]];
+    const isHead = (i%9===0);
+    out+=`<circle cx="${x}" cy="${y}" r="${isHead?15:12.5}" fill="${c}" opacity="${isHead?1:.9}"/>`;
+    out+=`<text class="seat-x" x="${x}" y="${y-2.5}" fill="#12182B">${xi}</text>`;
+    out+=`<text class="seat-r" x="${x}" y="${y+7.5}" fill="#12182B">${role}</text>`;
+  }
+  out+=`<text x="${cx}" y="${cy-6}" text-anchor="middle" font-family="var(--serif)" font-size="26" fill="#E0A93B">${SEQ[start]}</text>
+        <text x="${cx}" y="${cy+16}" text-anchor="middle" font-size="10" fill="#8A93A6" letter-spacing="4">命宿</text>`;
+  svg.innerHTML = out;
+}
+
+const WANTS = [
+  {k:'搬家・遠行',  roles:['安']},
+  {k:'結婚・結交',  roles:['友','親','危']},
+  {k:'開張・談事',  roles:['榮']},
+  {k:'求學・問道',  roles:['成']},
+  {k:'調養・治病',  roles:['衰']},
+  {k:'了斷・劃界',  roles:['壞']},
+  {k:'安靜・休息',  roles:['命','胎']},
+  {k:'業宿日（避決策）', roles:['業']}
+];
+let want = 0;
+function renderPicker(roleMap){
+  $('#chips').innerHTML = WANTS.map((w,i)=>
+    `<button class="chip" aria-pressed="${i===want}" data-i="${i}">${w.k}</button>`).join('');
+  $('#chips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{want=+b.dataset.i;render();});
+
+  const target = new Set(WANTS[want].roles);
+  const base = new Date($('#qd8').value + 'T00:00:00');
+  const buckets = {};
+  for(let k=0;k<90;k++){
+    const d = new Date(base.getTime() + k*86400000);
+    const L = xiuOfSolar(d);
+    if(!L || !target.has(roleMap[L.xiu])) continue;
+    const key = `${d.getFullYear()}年${d.getMonth()+1}月`;
+    (buckets[key]=buckets[key]||[]).push(
+      `${String(d.getDate()).padStart(2,'0')}日　${L.cn} ${L.xiu}${L.over?'*':''}`);
+  }
+  const keys = Object.keys(buckets);
+  $('#months').innerHTML = keys.length
+    ? keys.map(k=>`<div class="mo"><b>${k}</b><p>${buckets[k].join('<br>')}</p></div>`).join('')
+    : `<div class="mo"><p class="none">未來 90 日無此類日</p></div>`;
+}
+
+const XING = {
+  安重:{x:'畢翼斗壁',y1:'造宮殿伽藍館宇寺舍。種蒔修園林。貯納倉庫收積穀米。結交朋友婚姻。榮命時相造家具。設學供養入道場及安穩。並就師長入壇受灌頂法。造久長之事並吉。',j1:'唯不宜遠行索債。無保進路造酒。剃頭剪甲博戲。',p:'法合安重威肅正福德。有大名聞。',y2:'宜造莊宅、宮殿、寺觀、義堂，種蒔裁接、修立園林、貯納倉庫、收積穀麥、納交投友、成禮為婚，冊君王、封將相、授官榮、錫班職，造裝具、設齋供、入道修行及祈安隱，并就師學、入壇場受灌頂，造一切久長事務悉須為之皆吉。',j2:'唯不宜舉債、充保、遠行進路、造酒、剃毛髮、除爪甲、結仇嫌恨讎隙、習婬慾、學擹蒲等並凶。',x2:'畢翼斗壁',n2:'安重宿',g:'厚重安穩、宜久長之日。',by:'蓋能放得久的東西、結能走得遠的關係。造莊宅宮殿、寺觀講堂；種樹接枝、修整園林；納糧入倉；結交投友、締親成婚；冊封君王將相、授官敘職；置辦器具、設齋供養、入道修行、祈求平安；隨師學法、入壇受灌頂。凡屬久長之事皆宜。',bj:'借貸與作保；遠行上路；造酒；剃髮剪甲；結仇記恨；淫欲；賭博。',bx:''},
+  和善:{x:'觜角房奎',y1:'入道場問學技藝。習真言結齋戒。立道場受灌頂。造功德設音樂。及吉祥事喜慶。求婚舉放。對君王參將相。冠帶出行。服藥合和並吉。',j1:'（原文未列）',p:'法合柔軟溫良。聰明而愛典教。',y2:'宜入道、問學、伎藝，能習呪法、結齋戒、入壇受灌頂、建功德、設音樂，吉祥事、慶善業，成禮求婚、還錢舉債，見君王、參宰相，服飾新衣裳、冠帶好珠寶、作交關、營家業、進途、結親友、服湯藥、醫療眼、造一切穩善事務悉須為之吉。',j2:'（原文未列）',x2:'觜角房奎',n2:'和善宿',g:'溫和良善、宜學宜求之日。',by:'入道問學、學技藝、習咒法、結齋戒、入壇受灌頂；建功德、設音樂；辦喜慶善事；成禮求婚、還錢或舉債；謁見君王宰相；穿新衣、佩好珠寶；做買賣、經營家業、出門上路、結交親友；服藥、治眼。凡屬平穩和善之事皆宜。',bj:'原文未列。',bx:''},
+  毒害:{x:'參柳心尾',y1:'圍城破營。設兵掠賊。交陣破敵。劫盜攎蒱射獵並吉。',j1:'（原文未列）',p:'法合磣毒剛猛惡性。',y2:'宜圍城破營、徵兵喫賊、欺誑鬪爭、烈陣交鋒、申決烈破、和合行盜劫、設誓、攎蒱博戲、造械具戰具、閱兵馬點募健兒、採覘寇敵、漸決兇逆、誅戮罪人、施毒藥、施磣害、調習象馬、練祿鷹犬，一切猛浪事務悉須為之吉。',j2:'（原文未列）',x2:'參柳心尾',n2:'毒害宿',g:'剛烈殺伐之日。原文所列悉為戰陣刑殺之事。',by:'圍城破營、徵兵伐賊；欺敵、鬥爭、列陣交鋒；斷決、設誓；賭博；造械具兵器；閱兵、募集健兒；偵探敵情、剪除凶逆；誅罰罪人；施毒、施狠害；調馴象馬、訓練鷹犬。凡屬剛猛激烈之事皆宜。',bj:'原文未列。',bx:'尾宿日另宜：種苗稼、接樹木、營造宅屋、立園林。凡屬堅固耐久、爭競吃苦之事亦宜。'},
+  急速:{x:'鬼軫胃婁',y1:'放債貸錢。買賣交關。進路出行。調六畜乘習鷹鷂。設齋行道入學受業。服藥入道場受灌頂市買並吉。',j1:'（原文未列）',p:'法合剛猛而捷疾有筋力。',y2:'宜放錢貸債、賣交關、行途進路、往使征伐、估客上道、商主過磧、調伏畜生、教習鷹犬、設齋行施、習讀經書、教人典誥、學諸伎能、服食湯藥并受佩持護身之術、竪幢建旌麾、造扇障營蓋傘、入壇場受灌頂、騎象馬乘輿，一切事務悉須為之。',j2:'（原文未列）',x2:'鬼軫牛婁',n2:'急速宿',g:'迅捷行動之日。',by:'放款借貸、買賣交易；上路遠行、出使征伐；商旅啟程、越過沙漠；馴養牲畜、訓練鷹犬；設齋布施；讀經書、教人典籍、學各種技能；服食湯藥、佩帶護身之物；豎旗立幢、造傘蓋屏障；入壇受灌頂；騎乘象馬車輿。凡事皆可為。',bj:'原文未列。',bx:''},
+  猛惡:{x:'星張箕室',y1:'守路設險劫掠相攻。攎蒱博戲造兵器謀斷決囚徒。放藥行酪射獵。祭天祀神承兵威並吉。',j1:'（原文未列）',p:'法合兇害猛殺。宜捨身出家作沙門。',y2:'宜守路嶮、行劫行盜、構鬪端、起設誑、博戲攎蒱、強梁侵奪、姦非婬穢、國城斫營、造械具戰具、書兵謀、放毒藥、施磣害、斬決怨敵、誅戮罪逆、穰祭星辰、祈禱軍福、一切艱難事務悉須為之。',j2:'（原文未列）',x2:'胃星張箕室',n2:'猛惡宿',g:'艱難險惡之日。原文所列悉為劫盜兵謀之事。',by:'守險路行劫；挑起爭端、設詐；賭博；強梁侵奪；姦非淫穢；攻城斫營；造械具兵器、謀畫兵事；施毒、施狠害；斬決怨敵、誅罰罪逆；祭祀星辰、祈禱軍中福運。凡屬艱難之事皆宜。',bj:'原文未列。',bx:'張宿日另宜作愛敬法。箕宿日另宜鑿井穿坑、填渠開路。凡屬勞苦擾動之事亦宜。'},
+  輕燥:{x:'井亢女虛危',y1:'學乘象馬驕射馳走。浮江汎舟。奉使絕域和國入蕃。又勸行禮樂蘭閱兵馬。種蒔造酒合和藥並吉。',j1:'（原文未列）',p:'法合澆薄不然則質直平穩。',y2:'宜學乘騎象馬驢騾駝䮫及水牛等諸畜，調習野獸并捉乘騎，汎舟繫棹、渡水浮江，奉使騁域、說敵和怨、徵納庸調、收斂租稅，觀音樂、看大禮、買賣興販、營造車、乘點閱兵士，一切輕捷事務悉須為之。',j2:'（原文未列）',x2:'井亢女虛危',n2:'輕宿（或名行宿）',g:'輕快移動之日（卷下作「輕宿」，或名行宿）。',by:'學騎乘象、馬、驢、騾、駱駝及水牛等牲畜；馴服野獸、捉來騎乘；行舟渡水、浮江而下；出使遠域、與敵議和；徵收租稅賦調；聽音樂、看大禮；買賣販運；造車、點閱兵士。凡屬輕便敏捷之事皆宜。',bj:'原文未列。',bx:'危宿與井宿日另宜：耕種穀物、釀造酒醴、穿坑、疏通河渠、調合湯藥。'},
+  剛柔:{x:'昴氐',y1:'鍛鍊爐治修五行家具。及造瓦買賣之事。又宜設齋送葬鑽。鍊酥乳計算畜生入宅王者作盟會並吉。',j1:'（原文未列）',p:'法合為性寬柔而猛。君子之人流也。',y2:'兼善惡、帶剛柔，辛苦之務穩善之事悉須為之。又宜鍛鍊鐵、銷鑠金銀、打釧鈿環珮、造作五行調度、燒瓶瓦器、設齋造葬、焚屍埋殯、鑽燧變火、擊酪出酥、壓蒲桃、搦粆糖，放牛行禮、遣馬逐群、檢幸厩牧、點數畜生，造車器械具、從域出莊返城，移入新宅、棄劫舊墟室，笞責非為、決戮罪過并王者盟誓結信，一切如此事務悉須為之吉。',j2:'（原文未列）',x2:'昴氐',n2:'剛柔宿（或名平等宿）',g:'兼善惡、不偏吉凶之日（卷下另名「平等宿」）。七類中唯一善惡兼容者。',by:'辛苦之務與穩善之事皆可為。鍛鐵、熔煉金銀、打製釧鈿環珮首飾；造作五行器度；燒製瓶瓦；設齋、送葬、焚屍埋殯；鑽木取火；擊乳製酪取酥；壓榨葡萄、揉製砂糖；放牛行禮、驅馬逐群、查點廄牧牲口；造車與器械；自莊園返城；遷入新宅、棄捨舊居；笞責與判罪；王者盟誓結信。凡屬此類之事皆宜。',bj:'原文未列。',bx:'氐宿日另宜：種花藥、接樹木。'},
+};
+
+const BORN = {
+  昴:{f:'六星，形如剃刀',s:'火神',x:'某尼裴苦',e:'乳酪',p:'念善多男女，勤學問有容儀，性慳澁，足詞辯',t:'剛柔',c:'中國天文昴七星，主胡兵，西方之宿'},
+  畢:{f:'五星，形如半車',s:'缽闍缽底神',x:'瞿曇',e:'鹿肉',p:'多財產足男女，性聰明好布施，有心路省口語，心意不翻動，行步如牛王有容儀',t:'安重',c:'中國天文畢八星，主邊兵，西方之宿'},
+  觜:{f:'三星，形如鹿頭',s:'月神',x:'婆羅墮闍',e:'鹿肉',p:'有名聞景行，美容貌，心肚慎淨，愛服藥必得力，心口隱密，舉動不輕燥，好法用愛禮儀',t:'和善',c:'中國天文觜三星，主軍之士，西方之宿'},
+  參:{f:'一星，形如額上點',s:'魯達羅神',x:'盧醯底耶',e:'血',p:'猛惡梗戾，嗜瞋好合口舌，毒害心硬，臨事不怯',t:'毒害',c:'中國天文參十星，主將軍，西方之宿'},
+  井:{f:'二星，形如屋栿',s:'日神',x:'婆私瑟吒',e:'蘇餅',p:'錢財或有或無，情愛聲名，作人利官，縱有官厄還得解脫，受性饒病亦多男女，景行稍似純直',t:'輕燥',c:'中國天文井八星，主天門，南方之宿'},
+  鬼:{f:'三星，形如瓶',s:'蘖利訶馺撥底神',x:'謨闍耶那',e:'蜜、糖、稻穀華及乳粥',p:'分相端政無邪僻，足心力，多聞有妻妾，豐饒財寶，能檢校處分，又足親',t:'急速',c:'中國天文鬼五星，主官寮，南方之宿'},
+  柳:{f:'六星，形如蛇',s:'（神名闕）',x:'曼陀羅耶',e:'蟒蛇肉',p:'軟眼饒睡性虛，梗戾嗜瞋不伏人欺，又好布施亦好解脫，耽著情事難得心腹',t:'毒害',c:'中國天文柳八星，主厨饍之任，南方之宿'},
+  星:{f:'六星，形如猛',s:'薄伽神',x:'瞿必毘耶那',e:'卒日消',p:'愛爭競不能自押捺，嗜瞋怒；父母生存不能孝養，死後方崇祭饗追念；足奴婢畜乘資產，有名聞，一生好祈禱神廟',t:'猛惡',c:'中國天文星七星，主衣服，南方之宿'},
+  張:{f:'二星，形如杵',s:'婆藪神',x:'瞿那律耶',e:'乳粥',p:'足妻妾多男女，出語愜人意，甚得人愛，少資財智策，合得人財',t:'猛惡',c:'中國天文張六星，南方之宿'},
+  翼:{f:'二星，形如跏趺',s:'利耶摩',x:'遏咥黎',e:'栗蘇',p:'愛騎乘鞍馬、駕馭車牛，布施喫用，觸處遊從，為人穩口語，受性愛音樂',t:'安重',c:'中國天文翼二十二星，主府縣事，南方之宿'},
+  軫:{f:'五星，形如手',s:'毘婆怛利神',x:'跋蹉耶那',e:'乳粥',p:'有諸寶物業，合遊歷州縣，稟性嫉妬，為人少病，能立功德，兼愛車乘',t:'急速',c:'中國天文軫四星，主車乘騎，南方之宿'},
+  角:{f:'二星，形如長幢',s:'瑟室利神',x:'僧伽羅耶那',e:'（闕）',p:'善經營饒六畜，所作事多合，手巧所作愜人情',t:'和善',c:'中國天文角二星，主天門，東方之宿'},
+  亢:{f:'一星，形如火珠',s:'風神',x:'蘇那',e:'大麥、飲菉豆酥',p:'統領頭首，辯口詞，能經營饒財物，淨潔裝束愛喫用，造功德足心力，益家風',t:'輕燥',c:'中國天文亢四星，主兵，東方之宿'},
+  氐:{f:'四星，形如牛角',s:'因伽陀羅祇尼神',x:'邏怛利',e:'烏麻雜華',p:'有分相，好供養天佛，心性解事，受性良善，承君王優寵，富饒財物，利智足家口',t:'剛柔',c:'中國天文氐四星，主侵害，東方之宿'},
+  房:{f:'四星，形如帳',s:'布密多羅神',x:'多羅毘耶',e:'酒肉',p:'有威德，足男女，饒錢財，合快活，紹本族榮家風',t:'和善',c:'中國天文房四星，主天道，東方之宿'},
+  心:{f:'三星，形如階',s:'因陀羅神',x:'僧訖利底耶那',e:'粳米蔬乳',p:'處族眾得愛敬，承事君王多蒙禮侍，摧惡獎善，運命得所',t:'毒害',c:'中國天文心三星，主明堂印政，東方之宿'},
+  尾:{f:'二星，形如師子頂毛',s:'儞律神',x:'迦底那',e:'乳菓花草',p:'足衣食多庫藏，性慳澁，志惡戾諍競，合得外財，力性愛花藥',t:'毒害',c:'中國天文尾九星，主後宮士，東方之宿'},
+  箕:{f:'四星，形如牛步',s:'水神',x:'刺婆耶尼',e:'瞿陀甜苦味',p:'遊涉江山，經營利閨，為人耐辛苦，立性好婬逸，饒病愛酒',t:'猛惡',c:'中國天文箕四星，主妃後，東方之宿'},
+  斗:{f:'四星，形如像步',s:'毘說神',x:'毘耶羅那',e:'蜜、稻花',p:'愛鞍馬歷山林，愛祈禱祀，結交賢良，多伎能足錢財',t:'安重',c:'中國天文斗六星，主江湖，北方之宿'},
+  女:{f:'三星，形如梨格',s:'毘藪幻神',x:'目揭連耶那',e:'新生酥及鳥肉',p:'足心力少病，好布施守法律，勤道業榮祖宗',t:'輕燥',c:'中國天文女四星，主藏府土，北方之宿'},
+  虛:{f:'四星，形如訶梨勒',s:'娑婆神',x:'婆私迦耶',e:'大豆喻沙',p:'足穀多貯積，長命富勝，蒙君王寵愛，好祈禱神廟，終身快樂，不合辛苦',t:'輕燥',c:'中國天文虛二星，主宰相位，北方之宿'},
+  危:{f:'一星，形如花穗',s:'婆魯拏神',x:'丹茶耶',e:'羝羊肉',p:'嗜酒耽婬，耐辛苦，心膽硬，與人結交必不久長，能處分事務，解藥性',t:'輕燥',c:'中國天文危三星，主墳墓，北方之宿'},
+  室:{f:'二星，形如車轅',s:'阿醯多陀難神',x:'闍耶尼',e:'一切肉',p:'決猛惡，性嗜嗔，愛劫奪，能夜行不怕，慮性輕燥',t:'猛惡',c:'中國天文室二星，主宗廟，北方之宿'},
+  壁:{f:'二星，形如立竿',s:'尼陀羅神',x:'瞿摩多羅',e:'大麥飯、酥乳',p:'承君王恩寵，為性慎密慳澁，供養天佛，亦好布施，不多愛習典教',t:'安重',c:'中國天文壁二星，主圖書祕法，北方之宿'},
+  奎:{f:'三十二星，形如小艇',s:'甫涉神',x:'曼茶鼻耶',e:'肉及飲',p:'有祖父產業，經營得錢財，用盡後更得之，事無終始，好布施，合遊蕩足法用，慕善人，受教學典教',t:'和善',c:'中國天文奎十六星，主武庫，西方之宿'},
+  婁:{f:'三星，形如馬頭',s:'乾闥婆神',x:'河說耶尼',e:'烏麻雜苽',p:'多技能少疾病，妙解醫方，性好和合布施，足田疇，多遊僕從，合事君王，勤公務，稟志慎密',t:'急速',c:'中國天文婁三星，主林苑，西方之宿'},
+  胃:{f:'三星，形如三角',s:'闍摩神',x:'粟笈婆',e:'烏麻、稻米、蜜肉',p:'膽硬惡性，耽酒嗜肉，愛驅策劫奪強暴，稟志輕躁，足怨敵，饒男女多僕從',t:'急速',c:'中國天文胃三星，形如角，主兵軍，西方之宿'},
+};
+
+/* ── 三十日名（卷上〈日名善惡品第七〉／卷下〈白黑月所宜吉凶曆〉）──
+   白月一至十五日、黑月十六至三十日，日與日＋十五同名。
+   鍵為農曆日：idx = ((日 − 1) mod 15) + 1。 */
+const DAYNAME = {
+  1 :{n:'建名日', s:'梵天下',      y:'宜為善業、學道求仙，及事師尊宿。', j:'不宜遠行。'},
+  2 :{n:'得財日', s:'造化神下',    y:'宜合藥、按摩、工巧、出行、結交婚親，增益田宅。', j:'—'},
+  3 :{n:'威力日', s:'那羅延下',    y:'宜摧敵除逆、習戰、畜獸、獎訓下人，營田種蒔大吉。', j:'—'},
+  4 :{n:'猛武日', s:'閻羅天下',    y:'宜作惡業、殺害殘賊、摧伏叛逆則吉。', j:'為善事卻凶。'},
+  5 :{n:'圓滿日', s:'日天子下',    y:'宜為善業、修營床帳及車乘衣服，營田宅結婚。', j:'—'},
+  6 :{n:'求名日', s:'童子神下',    y:'宜為久長安定事，營宅宇寢廟，及建國邑伽藍、牛馬坊廄。', j:'不宜出行。'},
+  7 :{n:'友朋日', s:'北斗天下',    y:'宜結交、慶喜、安定、和藥，王者初服及造旌旗帷帳。', j:'唯不宜遠行。'},
+  8 :{n:'大戰日', s:'婆藪天下',    y:'宜為力用之事、造兵仗、城壘穿濠塹。', j:'—'},
+  9 :{n:'凶猛日', s:'毘舍闍鬼下',  y:'宜圍城縛敵、進途伐逆。', j:'不宜入宅及削髮並凶。'},
+  10:{n:'善法日', s:'善法神下',    y:'宜安久之事及急速飛捷，穿鑿井灶、修道，作功德伽藍順法之事並大吉。', j:'—'},
+  11:{n:'慈猛日', s:'自在天下',    y:'宜新立宅舍、營建城廟館宇廄，及設大祭祀天神。', j:'—'},
+  12:{n:'名聞日', s:'日天子下',    y:'宜作久長安國之事，及車乘倉庫。', j:'唯不宜放債。'},
+  13:{n:'最勝日', s:'大魔王下',    y:'宜所作皆急速皆吉，著衣服華鬘金玉裝畫，又宜嫁娶、修車乘，入壇場學法求道。', j:'—'},
+  14:{n:'勇猛日', s:'藥叉大將下',  y:'宜擒縛、掩捕、詭詐，相謀害大吉。', j:'唯不宜遠行。'},
+  15:{n:'吉祥日', s:'魂靈神下',    y:'宜祭先亡、作婆羅門大祭求福，布施供養師僧尊長，學戒善事求法大吉。', j:'—'}
+};
+function dayName(ld){ return DAYNAME[((ld - 1) % 15) + 1]; }
+
+/* ── 曜宿三日（卷上〈秘密雜佔品第五〉／卷下〈七曜直日曆品第八〉）──
+   宿為本經陰曆法之值日宿（二十七宿），曜為七曜直日＝星期。
+   27 與 7 互質，故 189 種宿曜組合皆可能出現；若用農民曆二十八宿，
+   宿與星期恆定綁死（28 ＝ 4×7），這些組合將永真或永假——
+   此即「值日宿須取二十七宿」的另一項結構性理由。 */
+const YAO_OF_WD = {0:'太陽',1:'太陰',2:'火',3:'水',4:'木',5:'金',6:'土'};  /* getDay(): 0=日 */
+const TRIDAY = {
+  甘露:{c:'#E0A93B', m:{軫:'太陽',畢:'太陰',星:'土',尾:'火',柳:'水',鬼:'木',房:'金'},
+        n:'甘露吉祥日', u:'宜學道求法、受密印及習真言。'},
+  金剛峯:{c:'#6F6390', m:{尾:'太陽',心:'太陰',壁:'火',昴:'水',井:'木',張:'金',亢:'土'},
+        n:'金剛峯日', u:'宜降伏魔怨、持日天子真言。'},
+  羅剎:{c:'#B5483C', m:{胃:'太陽',鬼:'太陰',翼:'火',參:'水',氐:'木',奎:'金',柳:'土'},
+        n:'羅剎日', u:'不宜舉動百事。唯射獵及諸損害之事。'}
+};
+function triDay(xiu, wd){
+  const yao = YAO_OF_WD[wd];
+  for(const k in TRIDAY) if(TRIDAY[k].m[xiu] === yao) return {k, yao, ...TRIDAY[k]};
+  return null;
+}
+
+const XCLASS = {};
+Object.keys(XING).forEach(k=>[...XING[k].x].forEach(x=>XCLASS[x]=k));
+
+const GOOD = new Set(['榮','安','成','友','親']);
+function mapOf(m,d){
+  const start = idxOf(m,d), map = {};
+  for(let i=0;i<27;i++) map[SEQ[(start+i)%27]] = roleOf(i);
+  return map;
+}
+function renderBorn(ming){
+  const b = BORN[ming]; if(!b) return;
+  $('#bnTitle').textContent = '命宿　' + ming + '宿';
+  $('#bnSub').textContent = '《宿曜經》卷上〈日宿直所生品第二〉　此宿直生人';
+  $('#bnBody').textContent = '法合' + b.p + '。';
+  $('#bnAttrs').innerHTML =
+    [['星形',b.f],['神',b.s],['姓',b.x],['所食',b.e],['宿性',b.t]]
+    .map(([k,v])=>`<span class="attr"><b>${k}</b>${v}</span>`).join('');
+  const cls = XCLASS[ming], X = XING[cls];
+  $('#bnBody').innerHTML = '法合' + b.p + '。'
+    + `<div style="margin-top:12px;padding-top:12px;border-top:1px dashed #DDD4C2;font-size:15px">`
+    + `<span style="font-family:var(--sans);font-size:11px;letter-spacing:.16em;color:#8A7F6B">宿性・${cls}宿　此宿生人〔卷上出，卷下無此層〕</span><br>`
+    + X.p + `</div>`;
+  $('#bnCn').textContent = '景風按：' + b.c + '。';
+}
+
+function renderPair(myMap, bm, bd){
+  const om=+$('#om').value, od=+$('#od').value;
+  const otherMap = mapOf(om,od);
+  const myMing = SEQ[idxOf(bm,bd)], otMing = SEQ[idxOf(om,od)];
+  const a = myMap[otMing];      // 對方命宿落在我盤何位
+  const b = otherMap[myMing];   // 我命宿落在對方盤何位
+  const cell = (who,ming,seat) =>
+    `${who}命宿 <b>${ming}</b> 落在${who==='對方'?'我':'對方'}盤 `
+    + `<span class="seat" style="background:${GCOLOR[GROUP[seat]]};color:#fff">${seat}</span>`;
+  $('#p1').innerHTML = cell('對方', otMing, a);
+  $('#p2').innerHTML = cell('我', myMing, b);
+  const vd=(el,seat)=>{ const g=GOOD.has(seat);
+    $(el).textContent = g ? '善　堪結交' : '非善位　'+MEAN[seat].g;
+    $(el).className = 'vd ' + (g?'good':'bad'); };
+  vd('#v1', a); vd('#v2', b);
+  const n = (GOOD.has(a)?1:0) + (GOOD.has(b)?1:0);
+  const pv=$('#pv');
+  pv.className = 'verdict ' + (n===2?'both':n===1?'half':'none');
+  pv.textContent = n===2 ? '兩相皆善　堪結交'
+    : n===1 ? (GOOD.has(a) ? '單向為善　我得其益，對方未必' : '單向為善　對方得其益，我未必')
+    : '兩相皆非善位';
+}
+
+function renderSheet(roleMap, bm, bd){
+  const base = new Date($('#qd8').value + 'T00:00:00');
+  const y = base.getFullYear(), m = base.getMonth()+1;
+  const last = new Date(y, m, 0).getDate();
+  const WK = ['日','一','二','三','四','五','六'];
+  let out = '', over = false; const tri = {};
+  for(let d=1; d<=last; d++){
+    const dt = new Date(y, m-1, d), L = xiuOfSolar(dt);
+    if(!L) continue;
+    const r = roleMap[L.xiu], mm = MEAN[r], td = triDay(L.xiu, dt.getDay());
+    if(td) tri[td.k] = (tri[td.k]||0) + 1;
+    if(L.over) over = true;
+    out += `<tr class="${dt.getDay()===0?'sun':''}">`
+        +  `<td class="d">${String(d).padStart(2,'0')}</td>`
+        +  `<td class="w">${WK[dt.getDay()]}</td>`
+        +  `<td class="w">${L.cn}${L.over?'*':''}<span style="font-size:9.5px;margin-left:4px">${dayName(L.ld).n.slice(0,2)}</span></td>`
+        +  `<td class="x">${L.xiu}<span style="font-family:var(--sans);font-size:9.5px;color:#8A7F6B;margin-left:4px">${XCLASS[L.xiu]}</span></td>`
+        +  `<td class="td3">${td ? `<span style="color:${td.c};font-weight:600">${td.k}</span>` : ''}</td>`
+        +  `<td class="p"><span style="background:${GCOLOR[GROUP[r]]}">${r}</span></td>`
+        +  `<td class="yi">${mm.yi}</td><td class="ji">${mm.ji}</td></tr>`;
+  }
+  $('#shBody').innerHTML = out;
+  $('#shTitle').textContent = `${y} 年 ${m} 月　個人吉凶表`;
+  $('#shMeta').textContent = `生辰 農曆 ${bm} 月 ${bd} 日`
+    + ($('#bleap').checked ? '（閏月，照本月起宿）' : '')
+    + `　命宿 ${roleMap && Object.keys(roleMap).find(k=>roleMap[k]==='命')}`;
+  const triLine = ['甘露','金剛峯','羅剎'].filter(k=>tri[k])
+    .map(k=>`<span style="color:${TRIDAY[k].c}">${TRIDAY[k].n} ${tri[k]} 日</span>`).join('　');
+  const dnLeg = Array.from({length:15},(_,i)=>{
+    const D2=DAYNAME[i+1];
+    return `<span style="display:inline-block;min-width:31%;padding-right:6px">`
+      + `<b>${i+1}／${i+16}　${D2.n}</b>　${D2.y.replace(/^宜/,'').replace(/。$/,'')}`
+      + (D2.j==='—'?'':`　<span style="color:#8A5148">忌${D2.j.replace(/^(唯)?不宜/,'').replace(/。$/,'')}</span>`)
+      + `</span>`;
+  }).join('');
+  $('#shFoot').innerHTML =
+      '<b>三十日名</b>（農曆日；日與日＋十五同名）<br><span style="font-size:9.5px;line-height:1.55">'+dnLeg+'</span><br><br>'
+    + '曜宿三日：宿為值日宿，曜為星期。甘露＝宜學道求法、受密印習真言；金剛峯＝宜降伏魔怨、持日天子真言；羅剎＝不宜舉動百事，唯射獵及諸損害之事。'
+    + (triLine ? '<br>本月　' + triLine : '<br>本月無曜宿三日。')
+    + '<br>值日宿依本經陰曆法（二十七宿去牛，每月定點起宿）；宿義為古法原文判語。'
+    + '<br>業宿日不宜決策，所作事倍功半。命、胎、業為三輪頭，古有並列為「不宜做重要決策」之說。'
+    + '（業宿出處異文：卷上作「所作皆吉利、吉祥」，卷下與東密傳習作「所作都難成就，且衰損」。）'
+    + (over ? '<br>標 * 者為本經曆表定小月而該農曆月實有三十日，該日以順推處理。' : '')
+    + '<br>宿曜經・三九秘宿　擇日之義在趨吉避凶增順緣。';
+}
+
+document.querySelectorAll('select,input').forEach(el=>el.addEventListener('change',render));
+$('#shPrint').onclick = () => window.print();
+render();
+</script>
+
+<script>
+/* PWA 註冊。service worker 需經 https 或 localhost，file:// 開啟時自動略過。 */
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW 註冊失敗', err));
+  });
+}
+</script>
+</body>
+</html>
