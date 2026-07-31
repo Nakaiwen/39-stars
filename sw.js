@@ -1,6 +1,6 @@
 /* 宿曜經・三九祕宿　Service Worker
    快取版本隨 index.html 內容雜湊變動，改檔即觸發更新。 */
-const CACHE = 'xiuyao-ea1a91ae';
+const CACHE = 'xiuyao-66e34ea5';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png',

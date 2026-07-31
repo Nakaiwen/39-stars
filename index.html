@@ -32,6 +32,21 @@ h1{font-family:var(--serif);font-size:clamp(23px,4.6vw,36px);font-weight:600;
 select,input[type=date]{font-family:var(--mono);font-size:15px;padding:8px 10px;
   background:#0D1222;color:var(--paper);border:1px solid #35406A;border-radius:8px;min-width:82px}
 select:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--teng);outline-offset:2px}
+.ymd{display:flex;flex-wrap:nowrap;gap:8px;flex:1 1 260px;min-width:0}
+.ymd .field{flex:1 1 0;min-width:0}
+.ymd select{min-width:0;width:100%}
+.seg{display:inline-flex;border:1px solid #35406A;border-radius:999px;overflow:hidden;align-self:flex-end;margin-bottom:1px}
+.seg button{font-family:var(--sans);font-size:13px;padding:9px 15px;border:0;cursor:pointer;
+  background:#0D1222;color:var(--hui)}
+.seg button[aria-pressed=true]{background:var(--teng);color:#12182B;font-weight:600}
+.conv{font-family:var(--mono);font-size:11.5px;color:var(--teng);align-self:flex-end;padding-bottom:11px}
+.conv.warn{color:#D08878}
+@media (max-width:640px){
+  .seg button{padding:12px 16px}
+  .ymd{gap:6px;flex-basis:100%}
+  .ymd select{padding:8px 4px;font-size:16px;text-align:center}
+  .ymd .field label{font-size:10px;letter-spacing:.1em}
+}
 .chk{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--hui);padding-bottom:9px}
 
 /* 命盤頭 */
@@ -133,6 +148,7 @@ figcaption{font-size:12px;color:var(--hui);text-align:center;padding:8px 6px 4px
 .mtbl td{padding:4px 6px;border-bottom:1px solid #EFE9DC;vertical-align:top}
 .mtbl td.d{font-family:var(--mono);white-space:nowrap}
 .mtbl td.w{color:#8A7F6B;white-space:nowrap}
+.mtbl .sub{font-family:var(--sans);font-size:9.5px;color:#A89572;margin-left:7px;letter-spacing:.04em}
 .mtbl td.x{font-family:var(--serif);font-size:14px;white-space:nowrap}
 .mtbl td.td3{font-family:var(--serif);font-size:12.5px;white-space:nowrap}
 .mtbl td.p span{font-family:var(--serif);font-size:13px;padding:1px 8px;border-radius:5px;color:#fff}
@@ -173,7 +189,7 @@ html{-webkit-text-size-adjust:100%}
   body{background:#fff}
   .wrap>*{display:none!important}
   .wrap>.sheet{display:block!important;margin:0;padding:0;border-radius:0;background:#fff}
-  .sheet .btn{display:none}
+  .sheet .btn{display:none!important}
   .tbl-scroll{overflow:visible}
   .mtbl{font-size:10pt;min-width:0} .mtbl td{padding:2.6px 5px}
   .tbl-hint{display:none!important}
@@ -204,9 +220,17 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
   <p class="sub">二十七宿隨月亮輪值，一日一宿。以生辰定出命宿，其餘二十六宿依序各得其位，各有宜忌。生辰為<strong>農曆</strong>。</p>
 
   <div class="bar">
-    <div class="field"><label for="bm">生辰・農曆月</label><select id="bm"></select></div>
-    <div class="field"><label for="bd">生辰・農曆日</label><select id="bd"></select></div>
-    <label class="chk"><input type="checkbox" id="bleap"> 閏月</label>
+    <div class="seg" id="bmode" role="group" aria-label="生辰輸入方式">
+      <button type="button" data-m="solar" aria-pressed="true">國曆生日</button>
+      <button type="button" data-m="lunar" aria-pressed="false">農曆生日</button>
+    </div>
+    <div class="ymd">
+      <div class="field" id="fBy"><label for="by">年</label><select id="by"></select></div>
+      <div class="field"><label for="bm">月</label><select id="bm"></select></div>
+      <div class="field"><label for="bd">日</label><select id="bd"></select></div>
+    </div>
+    <label class="chk" id="fLeap" hidden><input type="checkbox" id="bleap"> 閏月</label>
+    <span class="conv" id="bconv"></span>
     <div class="field"><label for="qd8">要看的日子（國曆）</label>
       <input type="date" id="qd8"></div>
   </div>
@@ -268,23 +292,33 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
   <div class="pair">
     <h3 class="sec" style="margin-top:0">合盤・結交法</h3>
     <div class="pair-in">
-      <div class="field"><label for="om">對方生辰・農曆月</label><select id="om"></select></div>
-      <div class="field"><label for="od">對方生辰・農曆日</label><select id="od"></select></div>
-      <label class="chk"><input type="checkbox" id="oleap"> 閏月</label>
+      <div class="seg" id="omode" role="group" aria-label="對方生辰輸入方式">
+        <button type="button" data-m="solar" aria-pressed="true">國曆</button>
+        <button type="button" data-m="lunar" aria-pressed="false">農曆</button>
+      </div>
+      <div class="ymd">
+        <div class="field" id="fOy"><label for="oy">年</label><select id="oy"></select></div>
+        <div class="field"><label for="om">月</label><select id="om"></select></div>
+        <div class="field"><label for="od">日</label><select id="od"></select></div>
+      </div>
+      <label class="chk" id="fOLeap" hidden><input type="checkbox" id="oleap"> 閏月</label>
+      <span class="conv" id="oconv"></span>
     </div>
     <div class="pair-cards">
       <div class="pcard"><div class="dir">我 看 對 方</div><div class="line" id="p1"></div><div class="vd" id="v1"></div></div>
       <div class="pcard"><div class="dir">對 方 看 我</div><div class="line" id="p2"></div><div class="vd" id="v2"></div></div>
     </div>
     <div class="verdict" id="pv"></div>
-    <div class="pair-src">卷上：「凡與人初結交者，先須看彼人命宿押我何宿。又看我命宿押彼人何宿。大抵以榮安成友親為善，堪結交，自餘並惡不可與相知。以為秘法耳。」<br>此法不對稱——我看對方與對方看我可以是兩種結果，故須兩邊各看一次。</div>
+    <p style="font-family:var(--mono);font-size:11.5px;color:var(--hui);margin:8px 0 0;text-align:center" id="pairMeta"></p>
+    <div class="pair-src">卷上：「凡與人初結交者，先須看彼人命宿押我何宿。又看我命宿押彼人何宿。大抵以榮安成友親為善，堪結交，自餘並惡不可與相知。以為秘法耳。」<br>此法不對稱——我看對方與對方看我可以是兩種結果，故須兩邊各看一次。對方生辰同樣可切國曆或農曆，國曆會自動換算並判定閏月。</div>
   </div>
 
   <div class="sheet">
     <div class="sheet-head">
       <h2 id="shTitle">個人月份吉凶表</h2>
       <span class="sheet-meta" id="shMeta"></span>
-      <button class="btn" id="shPrint">列印／存 PDF</button>
+      <button class="btn" id="shPrint">下載 PDF</button>
+      <button class="btn" id="shPrint2" style="background:transparent;color:#8A7F6B;border-color:#D8CFBB">列印</button>
     </div>
     <div class="tbl-scroll">
     <table class="mtbl">
@@ -297,6 +331,7 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
   </div>
 
   <div class="note">
+    <p><b>生辰可輸國曆</b>　多數人不記得農曆生日，故預設為國曆輸入，年月日皆為下拉選單，內部自動換算成農曆（1900–2100，含閏月判定），閏月不需自行勾選。切到農曆時同一組欄位改讀農曆，只是「年」收起（農曆排盤只需月日）。若你本來就知道農曆生辰，切到「農曆生日」直接輸入即可。<br><b>日界提醒</b>：農曆以子正（午夜零時）換日，故生於深夜十一點多與凌晨零點多，農曆日會差一天，三九盤也隨之不同。此類情形建議兩天都排來看。</p>
     <p><b>曆別</b>　生辰為<b>農曆</b>（閏月照本月起宿，閏五月＝五月起參宿，故勾選閏月不改變結果）；查詢日輸入<b>國曆</b>，內部轉農曆後查本經曆表，故全程只用一套宿曆。</p>
     <p><b>這張表怎麼來的</b>　二十七宿去牛宿，依「室壁奎婁胃昴畢觜參井鬼柳星張翼軫角亢氐房心尾箕斗女虛危」順行。每月起宿：正月室、二月奎、三月胃、四月畢、五月參、六月鬼、七月張、八月角、九月氐、十月心、十一月斗、十二月虛。與卷下「生日數加十三、自望宿順數」的略算法互為印證。</p>
     <p><b>值日宿依本經陰曆法</b>　三九盤只有二十七位，故值日宿亦取二十七宿（去牛宿）。輸入國曆日期，先轉農曆，再依月起宿表順數。與求命宿同用一套曆，內部自洽。<b>不採農民曆的二十八宿值日</b>——那一套含牛宿、依國曆連續輪值、逐年推移，同一天會得出不同的宿。</p>
@@ -1224,14 +1259,54 @@ function fillSel(el, n, suffix){
   }
 }
 fillSel($('#bm'),12,'月'); fillSel($('#bd'),30,'日');
-fillSel($('#om'),12,'月'); fillSel($('#od'),30,'日');
-$('#bm').value=5; $('#bd').value=5;
-$('#om').value=2; $('#od').value=5;
+fillSel($('#om'),12,'月'); fillSel($('#od'),31,'日');
+(function(){                       // 年：1900–2100，新到舊，生日多在近年
+  const el=$('#by'); el.innerHTML='';
+  for(let y=2100;y>=1900;y--){ const o=document.createElement('option'); o.value=y; o.textContent=y+'年'; el.appendChild(o); }
+})();
+$('#oy').innerHTML = $('#by').innerHTML;
+$('#by').value=1990; $('#bm').value=6; $('#bd').value=28;
+$('#oy').value=1988; $('#om').value=3; $('#od').value=15;
 $('#qd8').value = new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
 
 
+let BMODE='solar', BLEAP=false;
+const dim = (y,m) => [31, (y%4===0&&y%100!==0)||y%400===0 ? 29:28, 31,30,31,30,31,31,30,31,30,31][m-1];
+
+/* 日的選項數依模式與年月而定；改動時盡量保住原本選的日 */
+function syncDays(){
+  const keep = +$('#bd').value || 1;
+  const n = BMODE==='lunar' ? 30 : dim(+$('#by').value, +$('#bm').value);
+  fillSel($('#bd'), n, '日');
+  $('#bd').value = Math.min(keep, n);
+}
+function setMode(m){
+  BMODE=m;
+  $('#bmode').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.m===m));
+  const lunar = m==='lunar';
+  $('#fBy').hidden = lunar;          // 農曆只需月日，年收起
+  $('#fLeap').hidden = !lunar;
+  syncDays();
+}
+/* 回傳 {bm,bd} 或 null。國曆模式先轉農曆，閏月自動判定，不需使用者勾選。 */
+function birth(){
+  if(BMODE==='lunar'){
+    $('#bconv').textContent=''; $('#bconv').className='conv';
+    BLEAP=$('#bleap').checked;
+    return {bm:+$('#bm').value, bd:+$('#bd').value};
+  }
+  const y=+$('#by').value, m=+$('#bm').value, d=+$('#bd').value;
+  const r=XL_LUNAR.solar2lunar(y,m,d);
+  if(!r||!r.lMonth){ $('#bconv').textContent='此日期無法換算'; $('#bconv').className='conv warn'; return null; }
+  const cn=(r.monthCn+r.dayCn).replace(/闰/g,'閏').replace(/腊/g,'臘');
+  $('#bconv').textContent='→ 農曆 '+cn+(r.isLeap?'　閏月照本月起宿':'');
+  $('#bconv').className='conv'; BLEAP=!!r.isLeap;
+  return {bm:r.lMonth, bd:r.lDay};
+}
+
 function render(){
-  const bm=+$('#bm').value, bd=+$('#bd').value;
+  const B=birth(); if(!B) return;
+  const bm=B.bm, bd=B.bd;
 
   const start = idxOf(bm,bd);
 
@@ -1463,8 +1538,37 @@ function renderBorn(ming){
   $('#bnCn').textContent = '景風按：' + b.c + '。';
 }
 
+let OMODE='solar';
+function syncODays(){
+  const keep=+$('#od').value||1;
+  const n = OMODE==='lunar' ? 30 : dim(+$('#oy').value, +$('#om').value);
+  fillSel($('#od'), n, '日');
+  $('#od').value = Math.min(keep, n);
+}
+function setOMode(m){
+  OMODE=m;
+  $('#omode').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.m===m));
+  const lunar = m==='lunar';
+  $('#fOy').hidden = lunar; $('#fOLeap').hidden = !lunar;
+  syncODays();
+}
+/* 對方生辰：回傳農曆 {om,od}，國曆模式自動換算，閏月不需自行勾選 */
+function other(){
+  if(OMODE==='lunar'){
+    $('#oconv').textContent=''; $('#oconv').className='conv';
+    return {om:+$('#om').value, od:+$('#od').value};
+  }
+  const r=XL_LUNAR.solar2lunar(+$('#oy').value, +$('#om').value, +$('#od').value);
+  if(!r||!r.lMonth){ $('#oconv').textContent='此日期無法換算'; $('#oconv').className='conv warn'; return null; }
+  const cn=(r.monthCn+r.dayCn).replace(/闰/g,'閏').replace(/腊/g,'臘');
+  $('#oconv').textContent='→ 農曆 '+cn+(r.isLeap?'　閏月照本月起宿':'');
+  $('#oconv').className='conv';
+  return {om:r.lMonth, od:r.lDay};
+}
+
 function renderPair(myMap, bm, bd){
-  const om=+$('#om').value, od=+$('#od').value;
+  const O=other(); if(!O) return;
+  const om=O.om, od=O.od;
   const otherMap = mapOf(om,od);
   const myMing = SEQ[idxOf(bm,bd)], otMing = SEQ[idxOf(om,od)];
   const a = myMap[otMing];      // 對方命宿落在我盤何位
@@ -1478,12 +1582,225 @@ function renderPair(myMap, bm, bd){
     $(el).textContent = g ? '善　堪結交' : '非善位　'+MEAN[seat].g;
     $(el).className = 'vd ' + (g?'good':'bad'); };
   vd('#v1', a); vd('#v2', b);
+  $('#pairMeta').textContent = OMODE==='solar'
+    ? `對方 國曆 ${$('#oy').value}-${String($('#om').value).padStart(2,'0')}-${String($('#od').value).padStart(2,'0')}　命宿 ${otMing}`
+    : `對方 農曆 ${om} 月 ${od} 日　命宿 ${otMing}`;
   const n = (GOOD.has(a)?1:0) + (GOOD.has(b)?1:0);
   const pv=$('#pv');
   pv.className = 'verdict ' + (n===2?'both':n===1?'half':'none');
   pv.textContent = n===2 ? '兩相皆善　堪結交'
     : n===1 ? (GOOD.has(a) ? '單向為善　我得其益，對方未必' : '單向為善　對方得其益，我未必')
     : '兩相皆非善位';
+}
+
+
+/* ── 匯出 PDF ─────────────────────────────────────────────
+   不依賴任何外部套件：先把月表畫到 canvas（中文直接用系統字型，
+   故不需嵌入字型檔），再把 JPEG 包成最小 PDF，最後觸發下載。
+   代價是 PDF 內為影像、文字不可選取；換得的是離線可用與零相依。 */
+const PDF_W = 595, PDF_H = 842, PDF_MARGIN = 38, PDF_SCALE = 2.5;   /* ≈180dpi，畫質與檔案大小的折衷 */
+const PDF_FONT = '"Noto Serif TC","Songti TC","Source Han Serif TC","Microsoft JhengHei",serif';
+const PDF_SANS = '"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif';
+
+function pdfRoundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+}
+function pdfWrap(ctx, text, maxW){
+  const out=[]; let line='';
+  for(const ch of String(text)){
+    if(ctx.measureText(line+ch).width > maxW && line){ out.push(line); line=ch; }
+    else line+=ch;
+  }
+  if(line) out.push(line);
+  return out.length?out:[''];
+}
+
+/* 依目前畫面資料繪出月表頁面，回傳 canvas 陣列（自動分頁） */
+function buildSheetPages(){
+  const S=PDF_SCALE, W=PDF_W*S, H=PDF_H*S, M=PDF_MARGIN*S;
+  const COLS=[['日',26],['週',22],['農曆',82],['值日宿',52],['曜宿',38],['位',24],['宜',146],['忌',123]];
+  /* 每格取 {t:主文, s:小字}；農曆欄的日名與值日宿欄的宿性都是小字，需分開繪 */
+  const rows=[...document.querySelectorAll('#shBody tr')].map(tr=>
+    [...tr.querySelectorAll('td')].map(td=>{
+      const sp=td.querySelector('.sub');
+      if(!sp) return {t:td.textContent.trim(), s:''};
+      const c=td.cloneNode(true); c.querySelector('.sub').remove();
+      return {t:c.textContent.trim(), s:sp.textContent.trim()};
+    }));
+  const title=$('#shTitle').textContent, meta=$('#shMeta').textContent;
+  /* 註腳為結構化區塊：三十日名逐條一行分兩欄，其餘為段落 */
+  const footBlocks = [
+    {h:'三十日名', note:'依農曆日；日與日＋十五同名。',
+     list: Array.from({length:15},(_,i)=>{
+       const D2=DAYNAME[i+1];
+       return `${i+1}日／${i+16}日　${D2.n}　${D2.y.replace(/^宜/,'').replace(/。$/,'')}`
+         + (D2.j==='—'?'':`（忌${D2.j.replace(/^(唯)?不宜/,'').replace(/。$/,'')}）`);
+     })},
+    {h:'曜宿三日', p:'甘露＝宜學道求法、受密印習真言；金剛峯＝宜降伏魔怨、持日天子真言；羅剎＝不宜舉動百事，唯射獵及諸損害之事。'},
+    {h:'業宿', p:'不宜決策，所作事倍功半。命、胎、業為三輪頭，古有並列為「不宜做重要決策」之說。'},
+    {h:'值日宿', p:'依本經陰曆法（二十七宿去牛，每月定點起宿）；宿義為古法原文判語。宿曜經・三九秘宿。'}
+  ];
+
+  const pages=[]; let cv,ctx,y;
+  const newPage=()=>{
+    cv=document.createElement('canvas'); cv.width=W; cv.height=H;
+    ctx=cv.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H);
+    ctx.textBaseline='top'; pages.push(cv); y=M;
+  };
+  const header=(first)=>{
+    if(first){
+      ctx.fillStyle='#2A2A2A'; ctx.font=`600 ${19*S}px ${PDF_FONT}`;
+      ctx.fillText(title, M, y); y+=24*S;
+      ctx.fillStyle='#8A7F6B'; ctx.font=`${10*S}px ${PDF_SANS}`;
+      ctx.fillText(meta, M, y); y+=16*S;
+    }
+    ctx.strokeStyle='#D8CFBB'; ctx.lineWidth=1*S;
+    ctx.beginPath(); ctx.moveTo(M,y); ctx.lineTo(W-M,y); ctx.stroke(); y+=6*S;
+    ctx.fillStyle='#8A7F6B'; ctx.font=`600 ${8.5*S}px ${PDF_SANS}`;
+    let x=M; COLS.forEach(([h,w])=>{ ctx.fillText(h, x, y); x+=w*S; });
+    y+=12*S;
+    ctx.beginPath(); ctx.moveTo(M,y); ctx.lineTo(W-M,y); ctx.stroke(); y+=4*S;
+  };
+  newPage(); header(true);
+
+  const LIMIT=H-M-46*S;
+  rows.forEach((r,i)=>{
+    ctx.font=`${9*S}px ${PDF_FONT}`;
+    const wrapped=COLS.map(([,w],k)=>pdfWrap(ctx, (r[k]||{}).t||'', w*S-6*S));
+    const lines=Math.max(...wrapped.map(a=>a.length));
+    const rh=lines*11*S+5*S;
+    if(y+rh>LIMIT){ newPage(); header(false); }
+    if(i%2===1){ ctx.fillStyle='#FAF7F0'; ctx.fillRect(M, y-2*S, W-2*M, rh); }
+    let x=M;
+    wrapped.forEach((cell,k)=>{
+      if(k===5 && r[5].t){                     /* 位：色籤，與畫面同色 */
+        const col = GCOLOR[GROUP[r[5].t]] || '#8A93A6';
+        ctx.fillStyle = col;
+        pdfRoundRect(ctx, x-2*S, y-1.5*S, 19*S, 14*S, 3.5*S); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = `600 ${10*S}px ${PDF_FONT}`;
+        ctx.fillText(r[5].t, x+2.5*S, y+0.5*S);
+      } else if(k===4 && r[4].t){              /* 曜宿三日：甘露金／金剛峯紫／羅剎朱 */
+        ctx.fillStyle = (TRIDAY[r[4].t]||{}).c || '#2A2A2A';
+        ctx.font = `600 ${9*S}px ${PDF_FONT}`;
+        cell.forEach((ln,li)=>ctx.fillText(ln, x, y+li*11*S));
+      } else if(k===3){                        /* 值日宿：宿大、宿性小且灰 */
+        ctx.fillStyle='#2A2A2A'; ctx.font=`${11*S}px ${PDF_FONT}`;
+        ctx.fillText(r[3].t, x, y-0.5*S);
+        const wx=ctx.measureText(r[3].t).width;
+        ctx.fillStyle='#A89572'; ctx.font=`${7.5*S}px ${PDF_SANS}`;
+        ctx.fillText(r[3].s, x+wx+5*S, y+2.5*S);
+      } else if(k===2){                        /* 農曆：日期與日名分開，日名小字暖灰 */
+        ctx.fillStyle='#7A7266'; ctx.font=`${9*S}px ${PDF_FONT}`;
+        ctx.fillText(r[2].t, x, y);
+        const wx=ctx.measureText(r[2].t).width;
+        ctx.fillStyle='#A89572'; ctx.font=`${7.5*S}px ${PDF_SANS}`;
+        ctx.fillText(r[2].s, x+wx+5*S, y+1.5*S);
+      } else {
+        ctx.fillStyle = k===7 ? '#8A5148' : (k===1||k===2 ? '#7A7266' : '#2A2A2A');
+        ctx.font = `${9*S}px ${PDF_FONT}`;
+        cell.forEach((ln,li)=>ctx.fillText(ln, x, y+li*11*S));
+      }
+      x+=COLS[k][1]*S;
+    });
+    y+=rh;
+    ctx.strokeStyle='#EFE9DC'; ctx.beginPath();
+    ctx.moveTo(M,y-2*S); ctx.lineTo(W-M,y-2*S); ctx.stroke();
+  });
+
+  y+=14*S;
+  const LH=10.5*S, need=h=>{ if(y+h>H-M){ newPage(); y=M; } };
+  footBlocks.forEach(b=>{
+    need(16*S);
+    ctx.fillStyle='#6B6257'; ctx.font=`600 ${8*S}px ${PDF_SANS}`;
+    ctx.fillText('【'+b.h+'】', M, y);
+    const hx=ctx.measureText('【'+b.h+'】').width+6*S;
+    if(b.note){ ctx.fillStyle='#8A7F6B'; ctx.font=`${7.5*S}px ${PDF_SANS}`;
+      ctx.fillText(b.note, M+hx, y+0.5*S); }
+    y+=13*S;
+    ctx.fillStyle='#7A7266'; ctx.font=`${7.5*S}px ${PDF_SANS}`;
+    if(b.p){
+      pdfWrap(ctx, b.p, W-2*M-8*S).forEach(ln=>{ need(LH); ctx.fillText(ln, M+8*S, y); y+=LH; });
+    } else {                                   /* 兩欄，逐條一行 */
+      const gap=14*S, colW=(W-2*M-8*S-gap)/2, x0=M+8*S;
+      const half=Math.ceil(b.list.length/2);
+      const cols=[b.list.slice(0,half), b.list.slice(half)];
+      const rowsN=Math.max(...cols.map(c=>c.length));
+      const cell=cols.map(c=>c.map(t=>pdfWrap(ctx,t,colW)));
+      let yy=y;
+      for(let i=0;i<rowsN;i++){
+        const lines=Math.max(...cell.map(c=>(c[i]||['']).length));
+        need(lines*LH);
+        if(y!==yy){ yy=y; }                    /* 換頁後對齊 */
+        cell.forEach((c,ci)=>(c[i]||[]).forEach((ln,li)=>
+          ctx.fillText(ln, x0+ci*(colW+gap), y+li*LH)));
+        y+=lines*LH+1.5*S;
+      }
+    }
+    y+=9*S;
+  });
+  return pages;
+}
+
+/* 把 JPEG 頁面組成 PDF（手寫最小結構，含正確 xref 位移） */
+function pdfFromPages(pages){
+  const enc=new TextEncoder(), chunks=[]; let len=0;
+  const put=u=>{ chunks.push(u); len+=u.length; };
+  const putS=s=>put(enc.encode(s));
+  const jpgs=pages.map(cv=>{
+    const b64=cv.toDataURL('image/jpeg',0.86).split(',')[1];
+    const bin=atob(b64), u=new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i);
+    return {u, w:cv.width, h:cv.height};
+  });
+  const N=jpgs.length, total=2+N*3, off=new Array(total+1).fill(0);
+  putS('%PDF-1.4\n');
+  off[1]=len; putS(`1 0 obj\n<</Type/Catalog/Pages 2 0 R>>\nendobj\n`);
+  off[2]=len; putS(`2 0 obj\n<</Type/Pages/Count ${N}/Kids[${
+    jpgs.map((_,i)=>`${3+i*3} 0 R`).join(' ')}]>>\nendobj\n`);
+  jpgs.forEach((j,i)=>{
+    const P=3+i*3, I=P+1, C=P+2;
+    off[P]=len; putS(`${P} 0 obj\n<</Type/Page/Parent 2 0 R/MediaBox[0 0 ${PDF_W} ${PDF_H}]`
+      +`/Resources<</XObject<</Im0 ${I} 0 R>>/ProcSet[/PDF/ImageC]>>/Contents ${C} 0 R>>\nendobj\n`);
+    off[I]=len; putS(`${I} 0 obj\n<</Type/XObject/Subtype/Image/Width ${j.w}/Height ${j.h}`
+      +`/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length ${j.u.length}>>\nstream\n`);
+    put(j.u); putS('\nendstream\nendobj\n');
+    const cs=`q ${PDF_W} 0 0 ${PDF_H} 0 0 cm /Im0 Do Q\n`;
+    off[C]=len; putS(`${C} 0 obj\n<</Length ${cs.length}>>\nstream\n${cs}endstream\nendobj\n`);
+  });
+  const xref=len;
+  putS(`xref\n0 ${total+1}\n0000000000 65535 f \n`);
+  for(let i=1;i<=total;i++) putS(String(off[i]).padStart(10,'0')+' 00000 n \n');
+  putS(`trailer\n<</Size ${total+1}/Root 1 0 R>>\nstartxref\n${xref}\n%%EOF\n`);
+  const out=new Uint8Array(len); let p=0;
+  chunks.forEach(c=>{ out.set(c,p); p+=c.length; });
+  return out;
+}
+
+function pdfFilename(){
+  const y=+$('#qd8').value.slice(0,4), m=+$('#qd8').value.slice(5,7);
+  const birth = BMODE==='solar'
+    ? `${$('#by').value}${String($('#bm').value).padStart(2,'0')}${String($('#bd').value).padStart(2,'0')}`
+    : `農曆${String($('#bm').value).padStart(2,'0')}${String($('#bd').value).padStart(2,'0')}`;
+  return `${birth}_${y}年${m}月吉凶表_39秘宿法.pdf`;
+}
+
+function downloadPdf(){
+  const btn=$('#shPrint'), old=btn.textContent;
+  btn.textContent='產生中…'; btn.disabled=true;
+  setTimeout(()=>{
+    try{
+      const bytes=pdfFromPages(buildSheetPages());
+      const url=URL.createObjectURL(new Blob([bytes],{type:'application/pdf'}));
+      const a=document.createElement('a');
+      a.href=url; a.download=pdfFilename(); document.body.appendChild(a); a.click();
+      a.remove(); setTimeout(()=>URL.revokeObjectURL(url),4000);
+    }catch(e){ alert('PDF 產生失敗：'+e.message); }
+    btn.textContent=old; btn.disabled=false;
+  },30);
 }
 
 function renderSheet(roleMap, bm, bd){
@@ -1501,23 +1818,24 @@ function renderSheet(roleMap, bm, bd){
     out += `<tr class="${dt.getDay()===0?'sun':''}">`
         +  `<td class="d">${String(d).padStart(2,'0')}</td>`
         +  `<td class="w">${WK[dt.getDay()]}</td>`
-        +  `<td class="w">${L.cn}${L.over?'*':''}<span style="font-size:9.5px;margin-left:4px">${dayName(L.ld).n.slice(0,2)}</span></td>`
-        +  `<td class="x">${L.xiu}<span style="font-family:var(--sans);font-size:9.5px;color:#8A7F6B;margin-left:4px">${XCLASS[L.xiu]}</span></td>`
+        +  `<td class="w">${L.cn}${L.over?'*':''}<span class="sub">${dayName(L.ld).n.slice(0,2)}</span></td>`
+        +  `<td class="x">${L.xiu}<span class="sub">${XCLASS[L.xiu]}</span></td>`
         +  `<td class="td3">${td ? `<span style="color:${td.c};font-weight:600">${td.k}</span>` : ''}</td>`
         +  `<td class="p"><span style="background:${GCOLOR[GROUP[r]]}">${r}</span></td>`
         +  `<td class="yi">${mm.yi}</td><td class="ji">${mm.ji}</td></tr>`;
   }
   $('#shBody').innerHTML = out;
   $('#shTitle').textContent = `${y} 年 ${m} 月　個人吉凶表`;
-  $('#shMeta').textContent = `生辰 農曆 ${bm} 月 ${bd} 日`
-    + ($('#bleap').checked ? '（閏月，照本月起宿）' : '')
+  $('#shMeta').textContent = `生辰 農曆 ${BLEAP?'閏':''}${bm} 月 ${bd} 日`
+    + (BMODE==='solar' ? `（國曆 ${$('#by').value}-${String($('#bm').value).padStart(2,'0')}-${String($('#bd').value).padStart(2,'0')}）`
+                       : ($('#bleap').checked ? '（閏月）' : ''))
     + `　命宿 ${roleMap && Object.keys(roleMap).find(k=>roleMap[k]==='命')}`;
   const triLine = ['甘露','金剛峯','羅剎'].filter(k=>tri[k])
     .map(k=>`<span style="color:${TRIDAY[k].c}">${TRIDAY[k].n} ${tri[k]} 日</span>`).join('　');
   const dnLeg = Array.from({length:15},(_,i)=>{
     const D2=DAYNAME[i+1];
     return `<span style="display:inline-block;min-width:31%;padding-right:6px">`
-      + `<b>${i+1}／${i+16}　${D2.n}</b>　${D2.y.replace(/^宜/,'').replace(/。$/,'')}`
+      + `<b>${i+1}日／${i+16}日　${D2.n}</b>　${D2.y.replace(/^宜/,'').replace(/。$/,'')}`
       + (D2.j==='—'?'':`　<span style="color:#8A5148">忌${D2.j.replace(/^(唯)?不宜/,'').replace(/。$/,'')}</span>`)
       + `</span>`;
   }).join('');
@@ -1533,7 +1851,14 @@ function renderSheet(roleMap, bm, bd){
 }
 
 document.querySelectorAll('select,input').forEach(el=>el.addEventListener('change',render));
-$('#shPrint').onclick = () => window.print();
+['#by','#bm'].forEach(id=>$(id).addEventListener('change',()=>{syncDays();render();}));
+['#oy','#om'].forEach(id=>$(id).addEventListener('change',()=>{syncODays();render();}));
+$('#omode').querySelectorAll('button').forEach(b=>b.onclick=()=>{setOMode(b.dataset.m);render();});
+$('#bmode').querySelectorAll('button').forEach(b=>b.onclick=()=>{setMode(b.dataset.m);render();});
+setMode('solar');
+setOMode('solar');
+$('#shPrint').onclick  = downloadPdf;
+$('#shPrint2').onclick = () => window.print();
 render();
 </script>
 
