@@ -196,6 +196,107 @@ html{-webkit-text-size-adjust:100%}
   .mtbl tr{page-break-inside:avoid}
 }
 h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 0 0}
+
+/* 私人使用版：保留 1080px 資訊寬度，提升閱讀與查日效率。 */
+:root{--hui:#A7AFC2}
+[hidden]{display:none!important}
+.wrap{padding-top:24px}
+h1{font-size:clamp(27px,4.6vw,36px)}
+.source-title{font-family:var(--serif);font-size:14px;color:#C4CAD8;margin:6px 0}
+.byline{font-size:12px;margin-bottom:12px}
+.sub{margin-bottom:20px}
+.section-nav{position:sticky;top:0;z-index:5;display:flex;gap:4px;overflow-x:auto;
+  padding:8px 0;background:var(--ink);border-bottom:1px solid #35405C;margin-bottom:18px}
+.section-nav a{display:flex;align-items:center;justify-content:center;flex:1 0 44px;min-height:44px;
+  padding:6px 10px;color:var(--paper);font-size:14px;text-decoration:none;border-radius:8px;white-space:nowrap}
+.section-nav a:hover{background:var(--ink-2);color:var(--teng)}
+a:focus-visible{outline:2px solid var(--teng);outline-offset:-2px}
+#queryBar,#sheet,#picker,#pair,#born,#notes{scroll-margin-top:78px}
+button,select,input{touch-action:manipulation}
+button:disabled{opacity:.45;cursor:default}
+.btn,.chip,.seg button{min-height:44px;font-size:14px}
+.field label,.ymd .field label{font-size:13px;letter-spacing:.06em}
+select,input[type=date]{min-height:44px;color-scheme:dark;font-size:16px}
+.conv{font-size:12px;padding-bottom:10px}
+.query-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:16px 18px;margin-top:14px;border:1px solid #776037;border-radius:14px;background:#22263A}
+.query-bar>label{font-size:14px;color:#F1D79F;font-weight:600}
+.date-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.date-controls input{width:168px;min-width:0}
+.btn.primary{background:var(--teng);color:var(--ink);border-color:var(--teng);font-weight:600}
+.query-status{color:#E6AA99;font-size:14px;margin:10px 0}
+.query-status:empty{display:none}
+.update-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#26324A;
+  border:1px solid #596984;border-radius:10px;margin:0 0 14px;padding:12px 16px;font-size:14px}
+.heads{margin-top:18px}
+.head{padding:14px}
+.head .k{font-size:13px;letter-spacing:.12em}
+.head .v{font-size:36px;margin-top:8px}
+.head.ming .v,.head.tai .v{color:var(--paper)}
+.ring-wrap{margin-top:18px}
+.born{margin-top:0}
+.paper,.born,.sheet{color-scheme:light}
+.paper h2,.born h2,.sheet-head h2{font-size:20px}
+.dl{font-size:15px;row-gap:12px}
+.dl dt{font-size:13px;color:#71634F;letter-spacing:0;padding-top:2px}
+.dl dd#tYi{color:#285E4C;font-weight:600}
+.dl dd#tJi{color:#974137;font-weight:600}
+#tCal{font-size:13px!important}
+.rowsub,.born .sub2,.born .cn,.sheet-meta,.sheet-foot,.tbl-hint{font-size:12px;color:#726753}
+.born .attr{font-size:13px}
+.pcard .dir{font-size:12px;letter-spacing:.1em}
+.pcard .vd,.pair-src,.note{font-size:14px}
+#pairMeta{font-size:12px!important}
+.mo{padding:14px}
+.mo b{font-size:16px}
+.mo p{font-size:14px}
+h3.sec{font-size:20px}
+.month-controls{display:flex;gap:8px}
+.sheet-head{align-items:center;gap:10px}
+.sheet-meta{flex-basis:100%;order:1}
+.mtbl{min-width:680px;font-size:14px}
+.mtbl th{font-size:12px;letter-spacing:.04em;color:#71634F;padding:10px 6px}
+.mtbl td{padding:7px 6px;vertical-align:middle}
+.mtbl td.x{font-size:17px}
+.mtbl td.td3,.mtbl td.p span{font-size:14px}
+.mtbl .sub{font-size:11px;color:#78654A;display:inline-block;margin-left:5px}
+.mtbl td.w{color:#726753}
+.mtbl tr.selected-day td{background:#F5E3BE}
+.mtbl tr.selected-day td:first-child{box-shadow:inset 3px 0 0 #967128}
+.day-link{font:inherit;font-weight:600;border:1px solid #D6C9AF;border-radius:8px;background:#FFFCF6;
+  color:#2A2A2A;min-width:44px;min-height:44px;padding:6px;cursor:pointer}
+.day-link:hover{background:#ECD4A5}
+.sheet-foot>span{font-size:12px!important;line-height:1.8!important}
+.tbl-hint{display:block;font-size:12px}
+@media(max-width:840px){.day-stack{order:-1}}
+@media(max-width:640px){
+  .wrap{padding:18px 14px 48px}
+  .section-nav a{padding:6px 7px}
+  .query-bar{padding:14px;gap:10px}
+  .date-controls{display:grid;grid-template-columns:1fr 1fr 1fr;width:100%;gap:8px}
+  .date-controls input{grid-column:1/-1;grid-row:1;width:100%;max-width:100%}
+  .date-controls .btn{padding:9px 4px}
+  .head{padding:12px 4px}.head .v{font-size:32px}.head .k{font-size:12px}
+  .paper,.born,.sheet{padding:18px 15px}
+  .today .xiu{font-size:48px}.today .role{font-size:24px}
+  .dl{gap:10px;font-size:15px}
+  .sheet-head h2{width:100%}
+  .sheet-head>.btn{padding:8px 12px}
+  .month-controls .btn{padding:8px 12px}
+}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media print{
+  .sheet .month-controls{display:none!important}
+  .sheet-head h2{width:auto;font-size:16pt}
+  .sheet-meta{font-size:9pt}
+  .mtbl{font-size:9pt;min-width:0}.mtbl td{padding:2.6px 5px}
+  .mtbl th,.mtbl .sub{font-size:8pt}.mtbl td.x{font-size:11pt}
+  .mtbl td.td3,.mtbl td.p span{font-size:9pt}
+  .day-link{border:0;background:none;min-width:0;min-height:0;padding:0;font-weight:400}
+  .mtbl tr.selected-day td{background:transparent;box-shadow:none!important}
+  .sheet-foot,.sheet-foot>span{font-size:8pt!important}
+}
+
 </style>
 <meta property="og:title" content="宿曜經・三九祕宿">
 <meta property="og:description" content="依《文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經》推算三九祕宿與個人月份吉凶表。">
@@ -215,11 +316,14 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
 <body>
 <div class="wrap">
   <p class="eyebrow">三九秘宿・擇日</p>
-  <h1>文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經</h1>
+  <h1>宿曜經・三九祕宿</h1>
+  <p class="source-title">文殊師利菩薩及諸仙所說吉凶時日善惡宿曜經</p>
   <p class="byline">唐・不空 譯　楊景風 修注　底本 CBETA T21n1299</p>
   <p class="sub">二十七宿隨月亮輪值，一日一宿。以生辰定出命宿，其餘二十六宿依序各得其位，各有宜忌。生辰為<strong>農曆</strong>。</p>
 
-  <div class="bar">
+  <nav class="section-nav" aria-label="功能捷徑"><a href="#queryBar">查日</a><a href="#sheet">月表</a><a href="#picker">擇日</a><a href="#pair">合盤</a><a href="#born">命宿</a><a href="#notes">依據</a></nav>
+  <div class="update-banner" id="updateBanner" hidden role="status">新版已準備好。<button type="button" class="btn" id="reloadApp">重新載入</button></div>
+  <div class="bar" aria-label="我的生辰">
     <div class="seg" id="bmode" role="group" aria-label="生辰輸入方式">
       <button type="button" data-m="solar" aria-pressed="true">國曆生日</button>
       <button type="button" data-m="lunar" aria-pressed="false">農曆生日</button>
@@ -231,17 +335,28 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
     </div>
     <label class="chk" id="fLeap" hidden><input type="checkbox" id="bleap"> 閏月</label>
     <span class="conv" id="bconv"></span>
-    <div class="field"><label for="qd8">要看的日子（國曆）</label>
-      <input type="date" id="qd8"></div>
+
   </div>
 
+  <section class="query-bar" id="queryBar" aria-label="查詢日期">
+    <label for="qd8">查詢日・國曆</label><div class="date-controls"><button type="button" class="btn" id="qPrev" aria-label="前一天">前一天</button><input type="date" id="qd8" min="1900-01-31" max="2100-12-31"><button type="button" class="btn" id="qNext" aria-label="後一天">後一天</button><button type="button" class="btn primary" id="qToday">今天</button></div>
+  </section>
+  <p id="queryStatus" class="query-status" role="alert"></p>
   <div class="heads">
     <div class="head ming"><div class="k">命 宿</div><div class="v" id="hMing">—</div></div>
     <div class="head ye"><div class="k">業 宿</div><div class="v" id="hYe">—</div></div>
     <div class="head tai"><div class="k">胎 宿</div><div class="v" id="hTai">—</div></div>
   </div>
 
-  <div class="born">
+
+  <div class="ring-wrap">
+    <div class="stack chart-stack"><figure>
+      <svg id="ring" viewBox="0 0 460 460" role="img" aria-labelledby="ringTitle">
+        <title id="ringTitle">二十七宿月輪，自命宿順行</title>
+      </svg>
+      <figcaption>自命宿（頂端）順行，每九宿一輪：內圈一九、中圈二九、外圈三九</figcaption>
+    </figure>
+  <div class="born" id="born">
     <h2 id="bnTitle">—</h2>
     <div class="sub2" id="bnSub"></div>
     <div class="body" id="bnBody"></div>
@@ -249,15 +364,9 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
     <div class="cn" id="bnCn"></div>
   </div>
 
-  <div class="ring-wrap">
-    <figure>
-      <svg id="ring" viewBox="0 0 460 460" role="img" aria-labelledby="ringTitle">
-        <title id="ringTitle">二十七宿月輪，自命宿順行</title>
-      </svg>
-      <figcaption>自命宿（頂端）順行，每九宿一輪：內圈一九、中圈二九、外圈三九</figcaption>
-    </figure>
+    </div>
 
-    <div class="stack">
+    <div class="stack day-stack">
     <div class="paper">
       <h2>這一天對你</h2>
       <div class="today">
@@ -283,13 +392,13 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
     </div>
   </div>
 
-  <div class="picker">
+  <div class="picker" id="picker">
     <h3 class="sec" style="margin-top:0">想做這件事，哪些日子合適</h3>
     <div class="chips" id="chips"></div>
     <div class="months" id="months"></div>
   </div>
 
-  <div class="pair">
+  <div class="pair" id="pair">
     <h3 class="sec" style="margin-top:0">合盤・結交法</h3>
     <div class="pair-in">
       <div class="seg" id="omode" role="group" aria-label="對方生辰輸入方式">
@@ -313,24 +422,25 @@ h3.sec{font-family:var(--serif);font-size:17px;letter-spacing:.08em;margin:34px 
     <div class="pair-src">卷上：「凡與人初結交者，先須看彼人命宿押我何宿。又看我命宿押彼人何宿。大抵以榮安成友親為善，堪結交，自餘並惡不可與相知。以為秘法耳。」<br>此法不對稱——我看對方與對方看我可以是兩種結果，故須兩邊各看一次。對方生辰同樣可切國曆或農曆，國曆會自動換算並判定閏月。</div>
   </div>
 
-  <div class="sheet">
+  <div class="sheet" id="sheet">
     <div class="sheet-head">
       <h2 id="shTitle">個人月份吉凶表</h2>
       <span class="sheet-meta" id="shMeta"></span>
+      <div class="month-controls"><button type="button" class="btn" id="monthPrev">上個月</button><button type="button" class="btn" id="monthNext">下個月</button></div>
       <button class="btn" id="shPrint">下載 PDF</button>
       <button class="btn" id="shPrint2" style="background:transparent;color:#8A7F6B;border-color:#D8CFBB">列印</button>
     </div>
     <div class="tbl-scroll">
     <table class="mtbl">
-      <thead><tr><th>日</th><th>週</th><th>農曆</th><th>值日宿</th><th>曜宿</th><th>位</th><th>宜</th><th>忌</th></tr></thead>
+      <thead><tr><th scope="col">日</th><th scope="col">週</th><th scope="col">農曆</th><th scope="col">值日宿</th><th scope="col">曜宿</th><th scope="col">位</th><th scope="col">宜</th><th scope="col">忌</th></tr></thead>
       <tbody id="shBody"></tbody>
     </table>
     </div>
-    <p class="tbl-hint">表格較寬，可左右滑動檢視。</p>
+    <p class="tbl-hint">點選日期可查看當日詳情；表格較寬時，可左右滑動。</p>
     <div class="sheet-foot" id="shFoot"></div>
   </div>
 
-  <div class="note">
+  <div class="note" id="notes">
     <p><b>生辰可輸國曆</b>　多數人不記得農曆生日，故預設為國曆輸入，年月日皆為下拉選單，內部自動換算成農曆（1900–2100，含閏月判定），閏月不需自行勾選。切到農曆時同一組欄位改讀農曆，只是「年」收起（農曆排盤只需月日）。若你本來就知道農曆生辰，切到「農曆生日」直接輸入即可。<br><b>日界提醒</b>：農曆以子正（午夜零時）換日，故生於深夜十一點多與凌晨零點多，農曆日會差一天，三九盤也隨之不同。此類情形建議兩天都排來看。</p>
     <p><b>曆別</b>　生辰為<b>農曆</b>（閏月照本月起宿，閏五月＝五月起參宿，故勾選閏月不改變結果）；查詢日輸入<b>國曆</b>，內部轉農曆後查本經曆表，故全程只用一套宿曆。</p>
     <p><b>這張表怎麼來的</b>　二十七宿去牛宿，依「室壁奎婁胃昴畢觜參井鬼柳星張翼軫角亢氐房心尾箕斗女虛危」順行。每月起宿：正月室、二月奎、三月胃、四月畢、五月參、六月鬼、七月張、八月角、九月氐、十月心、十一月斗、十二月虛。與卷下「生日數加十三、自望宿順數」的略算法互為印證。</p>
@@ -1304,8 +1414,16 @@ function birth(){
   return {bm:r.lMonth, bd:r.lDay};
 }
 
+function clearQuery(message){
+  $('#queryStatus').textContent=message;
+  ['hMing','hYe','hTai','bnTitle','bnSub','bnBody','bnAttrs','bnCn','ring','tXiu','tRole','tCal','tGloss','tYi','tJi','tN','tY','tX','tXy','tbl','months','p1','p2','v1','v2','pv','pairMeta','shBody','shTitle','shMeta','shFoot'].forEach(id=>document.getElementById(id).replaceChildren());
+  $('#shPrint').disabled=true;$('#shPrint2').disabled=true;
+}
 function render(){
-  const B=birth(); if(!B) return;
+  const value=$('#qd8').value,qd=new Date(value+'T00:00:00');
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(value)||!Number.isFinite(qd.getTime())||value<'1900-01-31'||value>'2100-12-31'){clearQuery('請選擇 1900-01-31 至 2100-12-31 之間的查詢日期。');return;}
+  const B=birth(); if(!B){clearQuery('請調整生辰日期，目前日期無法換算農曆。');return;}
+  $('#queryStatus').textContent='';$('#shPrint').disabled=false;$('#shPrint2').disabled=false;
   const bm=B.bm, bd=B.bd;
 
   const start = idxOf(bm,bd);
@@ -1327,7 +1445,7 @@ function render(){
   // 這一天
   const qdate = new Date($('#qd8').value + 'T00:00:00');
   const L = xiuOfSolar(qdate);
-  if(!L){ $('#tXiu').textContent='—'; $('#tCal').textContent='日期超出農曆換算範圍（1900–2100）。'; return; }
+  if(!L){clearQuery('日期超出農曆換算範圍（1900–2100）。');return;}
   const qx = L.xiu, qr = roleMap[qx], mm = MEAN[qr];
   $('#tXiu').textContent = qx+'宿';
   $('#tRole').textContent = qr;
@@ -1815,8 +1933,8 @@ function renderSheet(roleMap, bm, bd){
     const r = roleMap[L.xiu], mm = MEAN[r], td = triDay(L.xiu, dt.getDay());
     if(td) tri[td.k] = (tri[td.k]||0) + 1;
     if(L.over) over = true;
-    out += `<tr class="${dt.getDay()===0?'sun':''}">`
-        +  `<td class="d">${String(d).padStart(2,'0')}</td>`
+    out += `<tr class="${dt.getDay()===0?'sun':''}${dateISO(dt)===$('#qd8').value?' selected-day':''}" data-date="${dateISO(dt)}">`
+        +  `<td class="d"><button class="day-link" type="button" aria-label="查看 ${dateISO(dt)}">${String(d).padStart(2,'0')}</button></td>`
         +  `<td class="w">${WK[dt.getDay()]}</td>`
         +  `<td class="w">${L.cn}${L.over?'*':''}<span class="sub">${dayName(L.ld).n.slice(0,2)}</span></td>`
         +  `<td class="x">${L.xiu}<span class="sub">${XCLASS[L.xiu]}</span></td>`
@@ -1825,6 +1943,7 @@ function renderSheet(roleMap, bm, bd){
         +  `<td class="yi">${mm.yi}</td><td class="ji">${mm.ji}</td></tr>`;
   }
   $('#shBody').innerHTML = out;
+  $('#shBody').querySelectorAll('.day-link').forEach(button=>button.onclick=()=>{chooseDate(button.closest('tr').dataset.date);$('#queryBar').scrollIntoView?.({block:'start'});});
   $('#shTitle').textContent = `${y} 年 ${m} 月　個人吉凶表`;
   $('#shMeta').textContent = `生辰 農曆 ${BLEAP?'閏':''}${bm} 月 ${bd} 日`
     + (BMODE==='solar' ? `（國曆 ${$('#by').value}-${String($('#bm').value).padStart(2,'0')}-${String($('#bd').value).padStart(2,'0')}）`
@@ -1850,6 +1969,15 @@ function renderSheet(roleMap, bm, bd){
     + '<br>宿曜經・三九秘宿　擇日之義在趨吉避凶增順緣。';
 }
 
+function dateISO(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function chooseDate(value){$('#qd8').value=value;render();}
+function stepQuery(days,months=0){
+  const d=new Date($('#qd8').value+'T12:00:00');if(!Number.isFinite(d.getTime()))return;
+  if(months){const keep=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+months);d.setDate(Math.min(keep,new Date(d.getFullYear(),d.getMonth()+1,0).getDate()));}else d.setDate(d.getDate()+days);
+  const next=dateISO(d);if(next<'1900-01-31'||next>'2100-12-31'){$('#queryStatus').textContent='已到可查詢日期範圍的邊界。';return;}chooseDate(next);
+}
+$('#qPrev').onclick=()=>stepQuery(-1);$('#qNext').onclick=()=>stepQuery(1);$('#qToday').onclick=()=>chooseDate(dateISO(new Date()));
+$('#monthPrev').onclick=()=>stepQuery(0,-1);$('#monthNext').onclick=()=>stepQuery(0,1);
 document.querySelectorAll('select,input').forEach(el=>el.addEventListener('change',render));
 ['#by','#bm'].forEach(id=>$(id).addEventListener('change',()=>{syncDays();render();}));
 ['#oy','#om'].forEach(id=>$(id).addEventListener('change',()=>{syncODays();render();}));
@@ -1863,11 +1991,12 @@ render();
 </script>
 
 <script>
-/* PWA 註冊。service worker 需經 https 或 localhost，file:// 開啟時自動略過。 */
+/* 新版本就緒後由使用者重新載入，避免中斷正在看的資料。 */
+$('#reloadApp').onclick=()=>location.reload();
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-  addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW 註冊失敗', err));
-  });
+  const hadController=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(hadController)$('#updateBanner').hidden=false;});
+  addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(err=>console.warn('SW 註冊失敗',err));});
 }
 </script>
 </body>

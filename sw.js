@@ -1,39 +1,40 @@
-/* 宿曜經・三九祕宿　Service Worker
-   快取版本隨 index.html 內容雜湊變動，改檔即觸發更新。 */
-const CACHE = 'xiuyao-66e34ea5';
+/* 宿曜經・三九祕宿：快取只管理本工具所在路徑。 */
+const PREFIX = 'xiuyao-' + encodeURIComponent(self.registration.scope) + '-';
+const CACHE = PREFIX + 'e4f1a41392ca';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png',
   './icons/icon-maskable-512.png', './icons/apple-touch-icon.png',
   './icons/favicon-32.png', './icons/cover-1024.png'
 ];
-
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+const ASSETS = new Set(SHELL.map(path => new URL(path, self.registration.scope).href));
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });
-
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys()
-      .then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys()
+    .then(keys => Promise.all(keys.filter(key => key.startsWith(PREFIX) && key !== CACHE).map(key => caches.delete(key))))
+    .then(() => self.clients.claim()));
 });
-
-/* 導覽請求：先網路後快取（拿得到新版就用新版，離線則回快取）
-   其餘同源請求：先快取後網路 */
-self.addEventListener('fetch', e => {
-  const req = e.request;
-  if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
-  if (req.mode === 'navigate') {
-    e.respondWith(
-      fetch(req).then(r => {
-        const copy = r.clone();
-        caches.open(CACHE).then(c => c.put('./index.html', copy));
-        return r;
-      }).catch(() => caches.match('./index.html'))
-    );
+self.addEventListener('fetch', event => {
+  const request = event.request, url = new URL(request.url);
+  if (request.method !== 'GET' || !url.href.startsWith(self.registration.scope)) return;
+  const page = new URL(request.url); page.search = ''; page.hash = '';
+  if (request.mode === 'navigate' && (page.href === self.registration.scope || page.href === new URL('./index.html', self.registration.scope).href)) {
+    event.respondWith((async () => {
+      const cache = await caches.open(CACHE);
+      try {
+        const response = await fetch(request);
+        if (response.ok) {
+          try { await cache.put('./index.html', response.clone()); } catch (_) { /* 空間不足時仍可線上使用。 */ }
+          return response;
+        }
+        return await cache.match('./index.html') || response;
+      } catch (_) {
+        return await cache.match('./index.html') || new Response('首次使用請先連線載入工具。', {status:503, headers:{'Content-Type':'text/plain; charset=utf-8'}});
+      }
+    })());
     return;
   }
-  e.respondWith(caches.match(req).then(r => r || fetch(req)));
+  if (ASSETS.has(url.href)) event.respondWith(caches.open(CACHE).then(cache => cache.match(request)).then(cached => cached || fetch(request)));
 });
